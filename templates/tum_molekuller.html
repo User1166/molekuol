@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Tüm Moleküller{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Tüm Moleküller</h1>
+    {% if search_query %}
+        <p>Arama Sonuçları: "{{ search_query }}"</p>
+    {% endif %}
+    <div class="molekul-listesi">
+        {% if tum_molekuller %}
+            <div class="molekul-grid">
+                {% for molekul in tum_molekuller %}
+                <div class="molekul-card card" data-category="{{ molekul.tur }}">
+                    <div class="card-image-container">
+                        <img src="{{ molekul.normal_gorunum[0].resim_url }}" alt="{{ molekul.ad }}" class="small-image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" data-formula="{{ molekul.kimyasal_formul }}">
+                            <a href="{{ url_for('molekul_detay', kimyasal_formul=molekul.kimyasal_formul) }}" class="molekul-link">
+                                {{ molekul.ad }} ({{ molekul.kimyasal_formul }})
+                            </a>
+                        </h5>
+                        <p class="card-text">{{ molekul.aciklama[:100] }}...</p>
+                        <p><strong>Bağ Türü:</strong> {{ molekul.tur }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p style="text-align: center; color: red;">Arama kriterlerinize uygun molekül bulunamadı.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

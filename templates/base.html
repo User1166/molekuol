@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}3D Molekül Sözlüğü{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <!-- Ana Sayfa -->
+            <div class="sidebar-links">
+                <a href="{{ url_for('index') }}"><i class="fas fa-home"></i> Ana Sayfa</a>
+            </div>
+
+            <!-- Tüm Moleküller -->
+            <div class="sidebar-links">
+                <a href="{{ url_for('tum_molekuller') }}"><i class="fas fa-th"></i> Tüm Moleküller</a>
+            </div>
+
+            <!-- Arama Kutusu -->
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Molekül Ara...">
+                <button onclick="searchMolecule()"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Hakkında ve İletişim -->
+            <div class="sidebar-links">
+                <a href="{{ url_for('hakkinda') }}"><i class="fas fa-info-circle"></i> Hakkında</a>
+                <a href="{{ url_for('iletisim') }}"><i class="fas fa-envelope"></i> İletişim</a>
+            </div>
+
+            <!-- Tema Değiştirici -->
+            <div class="theme-switcher">
+                <button onclick="toggleTheme()"><i class="fas fa-adjust"></i> Tema Değiştir</button>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>&copy; 2024 Ankara Atatürk Anadolu Lisesi</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

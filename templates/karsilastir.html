@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Molekül Karşılaştırma{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Molekül Karşılaştırma</h1>
+    <form id="karsilastir-form">
+        <div>
+            <label for="molekul1">Birinci Molekül:</label>
+            <select id="molekul1" name="molekul1">
+                {% for molekul in molekuller %}
+                <option value="{{ molekul.id }}">{{ molekul.ad }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="molekul2">İkinci Molekül:</label>
+            <select id="molekul2" name="molekul2">
+                {% for molekul in molekuller %}
+                <option value="{{ molekul.id }}">{{ molekul.ad }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="button" onclick="compareMolecules()">Karşılaştır</button>
+    </form>
+    <div id="comparison-result"></div>
+</div>
+{% endblock %}

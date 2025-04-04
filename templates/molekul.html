@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ molekul.ad }}{% endblock %}
+
+{% block content %}
+<div class="container molekul-detay-container">
+    <div class="molekul-header">
+        <h1 class="molekul-title">{{ molekul.ad }} ({{ molekul.kimyasal_formul }})</h1>
+        <p class="molekul-description">{{ molekul.aciklama }}</p>
+    </div>
+    <div class="molekul-images">
+        <img src="{{ molekul.yapisal_gorunum[0].resim_url }}" alt="{{ molekul.ad }} Yapısal Görünüm" class="large-image">
+        <img src="{{ molekul.normal_gorunum[0].resim_url }}" alt="{{ molekul.ad }} Normal Görünüm" class="large-image">
+    </div>
+    <h2>3D Görselleştirme</h2>
+    <div id="3d-viewer-wrapper">
+        <div id="3d-viewer"></div>
+    </div>
+    <h2>Özellikler</h2>
+    <table class="molekul-ozellikler-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Özellik</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ozellik in ozellikler %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ ozellik.tanim }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('tum_molekuller') }}" class="btn btn-secondary">Geri Dön</a>
+</div>
+<script src="https://3dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const viewerElement = document.getElementById("3d-viewer");
+        if (!viewerElement) {
+            console.error("3D Viewer öğesi bulunamadı!");
+            return;
+        }
+        const viewer = $3Dmol.createViewer(viewerElement, { backgroundColor: "white" });
+        fetch(`/static/3d/{{ molekul.dosya_3d }}`)
+            .then(response => response.text())
+            .then(modelData => {
+                viewer.addModel(modelData, "obj"); // .obj dosyasını yüklemek için "obj" formatı kullanılıyor
+                viewer.zoomTo();
+                viewer.render();
+            })
+            .catch(error => {
+                console.error("3D dosyası yüklenirken hata oluştu:", error);
+                viewerElement.innerText = "3D dosyası yüklenirken hata oluştu!";
+            });
+    });
+</script>
+{% endblock %}
