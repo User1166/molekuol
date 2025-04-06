@@ -12,7 +12,7 @@
         <img src="{{ molekul.yapisal_gorunum[0].resim_url }}" alt="{{ molekul.ad }} Yapısal Görünüm" class="large-image">
         <img src="{{ molekul.normal_gorunum[0].resim_url }}" alt="{{ molekul.ad }} Normal Görünüm" class="large-image">
     </div>
-    <h2>Görselleştirme</h2>
+    <h2>3d Görünüm</h2>
     {% if molekul.dosya_3d %}
     <div id="visualization-container" style="width: 100%; height: 600px; border: 1px solid #ccc; position: relative;">
         <div id="3d-viewer" style="width: 100%; height: 100%; position: relative;">
@@ -33,6 +33,13 @@
                     <i class="fas fa-ellipsis-h"></i>
                     <div id="dropdown-menu" class="hidden">
                         <button id="show-dynamics" class="dropdown-item">Dinamik Özellikler</button>
+                        <div class="dropdown-item">
+                            <button id="toggle-view-menu" class="dropdown-item">Görünümü Değiştir</button>
+                            <div id="view-options" class="hidden">
+                                <button id="wireframe-mode" class="dropdown-subitem">Wireframe Modu</button>
+                                <button id="solid-mode" class="dropdown-subitem">Solid Modu</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,6 +57,10 @@
         const moreOptionsButton = document.getElementById('more-options');
         const dropdownMenu = document.getElementById('dropdown-menu');
         const showDynamicsButton = document.getElementById('show-dynamics');
+        const toggleViewMenuButton = document.getElementById('toggle-view-menu');
+        const viewOptions = document.getElementById('view-options');
+        const wireframeModeButton = document.getElementById('wireframe-mode');
+        const solidModeButton = document.getElementById('solid-mode');
 
         // 3D Görselleştirme
         const scene = new THREE.Scene();
@@ -148,23 +159,59 @@
             dropdownMenu.classList.toggle('hidden');
         });
 
-        // Dinamik Özellikler
-        let isAnimating = false;
+        // Görünümü Değiştir Menüsü
+        toggleViewMenuButton.addEventListener('click', () => {
+            viewOptions.classList.toggle('hidden');
+        });
+
+        let isAnimating = false; // Dinamik Özellikler durumu
         let animationId;
+
+        // Dinamik Özellikler
         showDynamicsButton.addEventListener('click', () => {
             if (isAnimating) {
                 cancelAnimationFrame(animationId);
-                model.position.y = 0;
+                model.traverse((child) => {
+                    if (child.isMesh) {
+                        child.position.y = 0; // Hareketi sıfırla
+                    }
+                });
                 isAnimating = false;
             } else {
                 isAnimating = true;
                 let angle = 0;
                 function vibrate() {
                     angle += 0.1;
-                    model.position.y = Math.sin(angle) * 0.1;
+                    model.traverse((child) => {
+                        if (child.isMesh) {
+                            child.position.y = Math.sin(angle) * 0.1; // Titreşim hareketi
+                        }
+                    });
                     animationId = requestAnimationFrame(vibrate);
                 }
                 vibrate();
+            }
+        });
+
+        // Wireframe Modu
+        wireframeModeButton.addEventListener('click', () => {
+            if (model) {
+                model.traverse((child) => {
+                    if (child.isMesh && child.material) {
+                        child.material.wireframe = true; // Wireframe modu
+                    }
+                });
+            }
+        });
+
+        // Solid Modu
+        solidModeButton.addEventListener('click', () => {
+            if (model) {
+                model.traverse((child) => {
+                    if (child.isMesh && child.material) {
+                        child.material.wireframe = false; // Solid modu
+                    }
+                });
             }
         });
 
