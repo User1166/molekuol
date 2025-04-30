@@ -14,7 +14,7 @@
                 {% for molekul in tum_molekuller %}
                 <div class="molekul-card card" data-category="{{ molekul.tur }}">
                     <div class="card-image-container">
-                        <img src="{{ molekul.normal_gorunum[0].resim_url }}" alt="{{ molekul.ad }}" class="small-image">
+                        <img src="{{ molekul.yapisal_gorunum[0].resim_url }}" alt="{{ molekul.ad }}" class="small-image">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title" data-formula="{{ molekul.kimyasal_formul }}">

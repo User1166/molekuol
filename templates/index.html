@@ -6,20 +6,22 @@
 <div class="container">
     <h1>3D Molekül Sözlüğü</h1>
     <p>Bu proje, moleküller hakkında bilgi sunmayı ve kullanıcıların molekülleri keşfetmesini sağlamayı amaçlamaktadır.</p>
-    <p>Proje kapsamında, moleküllerin yapısal ve normal görünümleri, özellikleri ve açıklamaları sunulmaktadır.</p>
+    <p>Proje kapsamında, moleküllerin yapısal görünümleri, özellikleri ve açıklamaları sunulmaktadır.</p>
     <p>Yürütücü: Hatice Merve SELÇUKHAN</p>
     <p>Katılımcılar: Nehir Altan, Erdem Uzun</p>
 
     <div class="highlight-section">
         <h2>Öne Çıkan Moleküller</h2>
         <div class="highlight-list">
-            {% for element in tum_molekuller[:3] %}
-            <div class="highlight-card">
-                <img src="{{ element.normal_gorunum[0].resim_url }}" alt="{{ element.ad }}" class="small-image">
-                <h3>{{ element.ad }}</h3>
-                <p>{{ element.aciklama[:100] }}...</p>
-                <a href="{{ url_for('molekul_detay', kimyasal_formul=element.kimyasal_formul) }}" class="btn btn-primary">Detaylar</a>
-            </div>
+            {% for element in tum_molekuller %}
+                {% if element.ad in ["Su", "Karbon Dioksit", "Hidrojen"] %}
+                <div class="highlight-card">
+                    <img src="{{ element.yapisal_gorunum[0].resim_url }}" alt="{{ element.ad }}" class="small-image">
+                    <h3>{{ element.ad }}</h3>
+                    <p>{{ element.aciklama[:100] }}...</p>
+                    <a href="{{ url_for('molekul_detay', kimyasal_formul=element.kimyasal_formul) }}" class="btn btn-primary">Detaylar</a>
+                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

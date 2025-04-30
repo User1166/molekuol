@@ -15,6 +15,7 @@ class Molekul(db.Model):
     tur = db.Column(db.String(50), nullable=True)  # "iyonik", "kovalent" veya "metalik"
     resim_url = db.Column(db.String(200), nullable=True)  # Molekül resmi için URL
     dosya_3d = db.Column(db.String(200), nullable=True)  # 3D dosya adı
+    silinebilir = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         return f'<Molekul {self.ad}>'
@@ -25,6 +26,8 @@ class Ozellik(db.Model):
     tanim = db.Column(db.String(100), nullable=False)
     molekul_id = db.Column(db.Integer, db.ForeignKey('molekul.id'), nullable=False)
     molekul = db.relationship('Molekul', backref=db.backref('ozellikler', lazy=True))
+    aktif = db.Column(db.Boolean, default=True)
+    silinebilir = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         return f'<Ozellik {self.tanim}>'
@@ -146,6 +149,63 @@ def arama_onerileri():
         molekuller = Molekul.query.filter(Molekul.ad.ilike(f'%{query}%')).all()
         return jsonify([molekul.ad for molekul in molekuller])
     return jsonify([])
+
+# Özellik Ekleme API
+@app.route('/api/ozellik/ekle', methods=['POST'])
+def ozellik_ekle():
+    data = request.json
+    molekul_id = data.get('molekul_id')
+    tanim = data.get('tanim')
+    
+    if not all([molekul_id, tanim]):
+        return jsonify({'error': 'Eksik bilgi'}), 400
+        
+    yeni_ozellik = Ozellik(
+        tanim=tanim,
+        molekul_id=molekul_id,
+        aktif=True,
+        silinebilir=True
+    )
+    db.session.add(yeni_ozellik)
+    db.session.commit()
+    
+    return jsonify({
+        'id': yeni_ozellik.id,
+        'tanim': yeni_ozellik.tanim,
+        'silinebilir': yeni_ozellik.silinebilir
+    })
+
+# Özellik Gizleme API
+@app.route('/api/ozellik/gizle/<int:ozellik_id>', methods=['POST'])
+def ozellik_gizle(ozellik_id):
+    ozellik = Ozellik.query.get_or_404(ozellik_id)
+    
+    if not ozellik.silinebilir:
+        return jsonify({'error': 'Bu özellik silinemez'}), 403
+        
+    ozellik.aktif = False
+    db.session.commit()
+    
+    return jsonify({'success': True})
+
+# Özellikleri Sıfırlama API
+@app.route('/api/ozellik/sifirla/<int:molekul_id>', methods=['POST'])
+def ozellik_sifirla(molekul_id):
+    molekul = Molekul.query.get_or_404(molekul_id)
+    
+    # Tüm özellikleri getir
+    ozellikler = Ozellik.query.filter_by(molekul_id=molekul_id).all()
+    
+    for ozellik in ozellikler:
+        if ozellik.silinebilir:
+            # Silinebilir özellikleri sil
+            db.session.delete(ozellik)
+        else:
+            # Varsayılan özellikleri aktifleştir
+            ozellik.aktif = True
+    
+    db.session.commit()
+    return jsonify({'success': True})
 
 # Hakkında Sayfası
 @app.route('/hakkinda')
