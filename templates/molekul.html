@@ -226,317 +226,137 @@
     {% endif %}
     <h2>Özellikler</h2>
     <div class="molekul-ozellikler-container">
-        <!-- Yeni Özellik Ekleme Formu -->
-        <div class="yeni-ozellik-form">
-            <div class="ozellik-card">
-                <div class="ozellik-header">
-                    <h5 class="ozellik-title">
-                        <i class="fas fa-plus-circle"></i> 
-                        Yeni Özellik Ekle
-                    </h5>
-                    <button onclick="ozellikleriSifirla()" class="sifirla-btn">
-                        <i class="fas fa-undo"></i> Özellikleri Sıfırla
-                    </button>
-                </div>
-                <div class="ozellik-input-group">
-                    <input type="text" 
-                           id="yeni-ozellik" 
-                           placeholder="Yeni özelliği buraya yazın..."
-                           maxlength="100">
-                    <button onclick="ozellikEkle()" class="ekle-btn">
-                        <i class="fas fa-plus"></i> Ekle
-                    </button>
-                </div>
-                <div class="info-text">
-                    <i class="fas fa-info-circle"></i>
-                    Eklediğiniz özellikler daha sonra silinebilir.
-                </div>
-                <div id="bildirim" class="bildirim gizli"></div>
-            </div>
-        </div>
-
-        <!-- Özellikler Tablosu -->
-        <div class="ozellikler-card">
-            <table class="ozellikler-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Özellik</th>
-                        <th>İşlem</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for ozellik in ozellikler %}
-                    {% if ozellik.aktif %}
-                    <tr>
-                        <td>{{ loop.index }}</td>
-                        <td>{{ ozellik.tanim }}</td>
-                        <td>
-                            {% if ozellik.silinebilir %}
-                            <button onclick="ozellikGizle({{ ozellik.id }})" class="sil-btn">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                            {% else %}
-                            <span class="varsayilan-rozet">
-                                <i class="fas fa-lock"></i> Varsayılan
-                            </span>
-                            {% endif %}
-                        </td>
-                    </tr>
+        <div class="ozellikler-accordion">
+            {% set basliklar = ['Yapı', 'Fiziksel Özellikler', 'Kimyasal Özellikler', 'Kimyasal Reaksiyonlar', 'Toksik Etkiler', 'Kullanım Alanları'] %}
+            
+            {% for baslik in basliklar %}
+                {% for ozellik in ozellikler %}
+                    {% if ozellik.aktif and baslik in ozellik.tanim %}
+                        <div class="accordion-item">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <div class="header-content">
+                                    <span class="property-title">{{ baslik }}</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <p>{{ ozellik.tanim.split(': ', 1)[1] | safe }}</p>
+                            </div>
+                        </div>
+                        {% if not loop.last %}{% endif %}
                     {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
+                {% endfor %}
+            {% endfor %}
         </div>
     </div>
 
     <style>
     .molekul-ozellikler-container {
-        max-width: 800px;
+        max-width: 1000px;
         margin: 2rem auto;
         padding: 0 1rem;
     }
 
-    .yeni-ozellik-form {
-        margin-bottom: 2rem;
+    .ozellikler-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .ozellik-card {
+    .accordion-item {
         background: #fff;
+        border: 1px solid #ddd;
         border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        padding: 1.5rem;
-        margin-bottom: 1rem;
     }
 
-    .ozellik-header {
+    .accordion-header {
+        padding: 1.25rem;
+        background: #f8f9fa;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .header-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1rem;
     }
 
-    .ozellik-title {
-        margin: 0 0 1rem 0;
+    .property-title {
+        font-weight: 600;
         color: #333;
-        font-size: 1.2rem;
-        text-align: center;
+        font-size: 1.1rem;
     }
 
-    .ozellik-input-group {
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .ozellik-input-group input {
-        flex: 1;
-        padding: 0.75rem;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 1rem;
-    }
-
-    .ekle-btn {
-        background: #007bff;
-        color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-
-    .ekle-btn:hover {
-        background: #0056b3;
-    }
-
-    .sifirla-btn {
-        background: #6c757d;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .sifirla-btn:hover {
-        background: #5a6268;
-        transform: scale(1.05);
-    }
-
-    .info-text {
+    .accordion-header i {
+        transition: transform 0.3s ease;
         color: #666;
-        font-size: 0.9rem;
-        text-align: center;
     }
 
-    .ozellikler-table {
-        width: 100%;
-        border-collapse: collapse;
+    .accordion-header:hover {
+        background: #e9ecef;
     }
 
-    .ozellikler-table th,
-    .ozellikler-table td {
-        padding: 1rem;
-        text-align: left;
-        border-bottom: 1px solid #eee;
+    .accordion-item.active .accordion-header i {
+        transform: rotate(180deg);
     }
 
-    .sil-btn {
-        background: none;
-        border: none;
-        color: #dc3545;
-        cursor: pointer;
-        transition: transform 0.3s;
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        background: #fff;
+        padding: 0 1.25rem;
     }
 
-    .sil-btn:hover {
-        transform: scale(1.1);
+    .accordion-content p {
+        margin: 0;
+        padding: 1.25rem 0;
+        line-height: 1.8;
+        color: #444;
     }
 
-    .varsayilan-rozet {
-        background: #6c757d;
-        color: white;
-        padding: 0.3rem 0.6rem;
-        border-radius: 4px;
-        font-size: 0.8rem;
+    .accordion-item.active .accordion-content {
+        max-height: 2000px;
     }
 
-    .bildirim {
-        padding: 1rem;
-        border-radius: 4px;
-        margin-top: 1rem;
-        text-align: center;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .bildirim.basarili {
-        background: #d4edda;
-        color: #155724;
-        opacity: 1;
-    }
-
-    .bildirim.hata {
-        background: #f8d7da;
-        color: #721c24;
-        opacity: 1;
-    }
-
-    .bildirim.gizli {
-        display: none;
-    }
-
-    .dark-theme .ozellik-card {
+    .dark-theme .accordion-item {
         background: #2d2d2d;
-        color: #fff;
+        border-color: #444;
     }
 
-    .dark-theme .ozellik-input-group input {
+    .dark-theme .accordion-header {
         background: #333;
-        border-color: #444;
+    }
+
+    .dark-theme .property-title {
         color: #fff;
     }
 
-    .dark-theme .ozellikler-table th,
-    .dark-theme .ozellikler-table td {
-        border-color: #444;
-    }
-
-    .dark-theme .info-text {
-        color: #aaa;
+    .dark-theme .accordion-content {
+        background: #2d2d2d;
+        color: #ddd;
     }
     </style>
 
     <script>
-    function bildirimGoster(mesaj, tur) {
-        const bildirim = document.getElementById('bildirim');
-        bildirim.textContent = mesaj;
-        bildirim.className = `bildirim ${tur}`;
+    function toggleAccordion(header) {
+        const item = header.closest('.accordion-item');
+        const wasActive = item.classList.contains('active');
         
-        setTimeout(() => {
-            bildirim.className = 'bildirim gizli';
-        }, 3000);
-    }
-
-    function ozellikGizle(ozellikId) {
-        if (!confirm('Bu özelliği silmek istediğinize emin misiniz?')) return;
-
-        fetch(`/api/ozellik/gizle/${ozellikId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                bildirimGoster('Özellik başarıyla silindi.', 'basarili');
-                setTimeout(() => location.reload(), 1000);
-            } else {
-                bildirimGoster(data.error || 'Bir hata oluştu.', 'hata');
-            }
+        // Close all accordion items
+        document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+            accordionItem.classList.remove('active');
         });
-    }
 
-    function ozellikEkle() {
-        const input = document.getElementById('yeni-ozellik');
-        const yeniOzellik = input.value.trim();
-        
-        if (!yeniOzellik) {
-            bildirimGoster('Lütfen bir özellik yazın!', 'hata');
-            return;
+        // Toggle the clicked item
+        if (!wasActive) {
+            item.classList.add('active');
         }
-
-        fetch('/api/ozellik/ekle', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                molekul_id: {{ molekul.id }},
-                tanim: yeniOzellik
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.id) {
-                bildirimGoster('Yeni özellik eklendi.', 'basarili');
-                setTimeout(() => location.reload(), 1000);
-            } else {
-                bildirimGoster(data.error || 'Bir hata oluştu.', 'hata');
-            }
-        });
     }
-
-    function ozellikleriSifirla() {
-        if (!confirm('Tüm özellikler varsayılan haline getirilecek. Onaylıyor musunuz?')) return;
-
-        fetch(`/api/ozellik/sifirla/{{ molekul.id }}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                bildirimGoster('Özellikler başarıyla sıfırlandı.', 'basarili');
-                setTimeout(() => location.reload(), 1000);
-            } else {
-                bildirimGoster(data.error || 'Bir hata oluştu.', 'hata');
-            }
-        });
-    }
-
-    document.getElementById('yeni-ozellik').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            ozellikEkle();
-        }
-    });
     </script>
     <a href="{{ url_for('tum_molekuller') }}" class="btn btn-secondary">Geri Dön</a>
 </div>

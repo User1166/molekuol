@@ -1,0 +1,479 @@
+Asetilen: 
+1. Yapı: Kimyasal formülü C₂H₂ olan Asetilen, iki karbon atomu arasında üçlü bağ bulunan en basit alkin bileşiğidir. Her bir karbon atomu, bir hidrojen atomuna bağlıdır.
+2. Fiziksel Özellikler:
+- Ağır gaz: Oda sıcaklığında gaz halindedir.
+- Kokusuz: Asetilenin kendine özgü bir kokusu yoktur, ancak yanma sırasında farklı kokular oluşabilir.
+- Çözünürlük: Su ile az çözünür, ancak organik çözücülerde iyi çözünür.
+3. Kimyasal Özellikler:
+- Yanıcılık: Asetilen, havada yanıcı bir gazdır ve yanma reaksiyonları sırasında yüksek sıcaklıklar oluşturur.
+- Reaksiyonlar: Asetilen, çeşitli kimyasal reaksiyonlara girebilir. Örneğin, hidrojenasyon, halojenasyon ve polimerizasyon gibi reaksiyonlar gösterebilir.
+- Asidik özellik: Asetilen, zayıf bir asit olarak kabul edilir ve alkali metallerle reaksiyona girerek asetilid tuzları oluşturabilir.
+4. Kullanım Alanları:
+- Asetilen, genellikle kaynak gazı olarak kullanılır. Metal kesme ve kaynak işlemlerinde yaygın olarak tercih edilir.
+
+Karbondioksit (CO₂), 
+1.	Yapı: 
+Doğrusal yapı: O=C=O
+İki çift bağ (C=O) içerir.
+Kutuplanmamış (apolar) bir moleküldür.
+
+2.	Fiziksel Özellikler:
+•	Renk ve Koku: Renksiz ve kokusuz bir gazdır.
+•	Erime ve Kaynama Noktası: CO₂, gaz halinde oda sıcaklığında bulunur, ancak -78.5°C’de katı (süblimleşir) hale geçer ve -56.6°C’de sıvı hale gelir.
+•	Yoğunluk: Karbondioksit, havadan daha yoğun bir gazdır.
+•	Çözünürlük: CO₂, su içinde çözünür ve suyla reaksiyona girerek karbonik asit (H₂CO₃) oluşturur.
+3.	Kimyasal Özellikler:
+•	Asidik Özellik: CO₂, su ile birleştiğinde karbonik asit (H₂CO₃) oluşturur:Karbonik asit, zayıf bir asit olup suyun pH'ını düşürür.
+•	Elektron Çekici Yapı: Karbondioksit, moleküler yapısındaki karbon atomunun yüksek elektronegatifliği nedeniyle elektron çekici özellik gösterir
+•	Karboksil Grubu Türetimi: CO₂, karboksil grubu (-COOH) içeren bileşiklerin sentezinde kullanılır. 
+         4.    Kimyasal Reaksiyonlar: Çeşitli kimyasal reaksiyonlara girebilir. Karbonil Grubu, Karboksilasyon Reaksiyonları(Grignard, Aldol Yoğunlaşması ve Diğer Polimerizasyon Reaksiyonları) Fotosentez reaksiyonarı gibi.
+          5. Toksisite ve Güvenlik:
+•	Toksik Etkiler: CO₂, konsantrasyonu arttığında solunum için tehlikeli olabilir. Yüksek konsantrasyonlarda (yaklaşık %5 ve üzerinde) boğulma riski doğurabilir.
+•	Asidik Etkiler: Karbonik asit (H₂CO₃) oluşturduğu için, CO₂’nin yüksek konsantrasyonları su sistemlerinde pH değişikliklerine yol açabilir. Bu da ekosistemler için olumsuz sonuçlar doğurabilir.
+           6.  Kullanım Alanları:
+•	Kimyasal Sentezler: Karbondioksit, çeşitli kimyasal sentezlerde önemli bir reaktandır. 
+•	Organik Sentez Reaksiyonları: CO₂, organik kimyada karbon kaynağı olarak, özellikle metal katalizörlü reaksiyonlarda, kullanılır.
+•	Karboksilat İyonları ve Esterler: CO₂, organik asitlerin ve esterin sentezinde de yaygın olarak kullanılır.
+•	Süperkritik Karbondioksit: CO₂'nin süperkritik haline (sıvı-gaz geçişi) getirildiğinde, temizleme, ekstraksiyon ve polimer üretimi gibi uygulamalarda kullanılabilir.
+Etilen ( C₂H₄ )
+1. Yapı:Kimyasal formül: C₂H₄ . İki karbon atomu arasında bir çift bağ (C=C) bulunur. Her karbon atomu ayrıca iki hidrojen atomuna bağlanır.
+2. Fiziksel Özellikleri
+•	Gaz halindedir (oda sıcaklığında).
+•	Renksiz, hafif tatlımsı kokusu vardır.
+•	Erime noktası: –169 °C
+•	Kaynama noktası: –104 °C
+•	Çözünürlük: Suda az çözünür, organik çözücülerde daha iyi çözünür.
+3. Kimyasal Özellikleri
+- Etilen, alkenler sınıfına ait olduğu için çift bağ içerir. Bu, onu reaktif hale getirir.
+- Reaksiyonlar: Etilen, çeşitli kimyasal reaksiyonlara girebilir. Örneğin:
+- Hidrojene Dönüşüm: Etilen, hidrojen gazı ile reaksiyona girerek etan oluşturabilir.
+- Polimerizasyon: Etilen, polietilen gibi polimerlerin üretiminde kullanılır.
+- Halojenasyon: Etilen, halojenlerle (örneğin, klor veya brom) reaksiyona girerek dihalojenli bileşikler oluşturabilir.
+4. Kimyasal Tepkime Örnekleri
+1. Hidratasyon: Etilen, su ile tepkimeye girerek alkol (etanol) oluşturabilir.
+2. Oksidasyon: Etilen, oksijenle tepkimeye girerek etilen oksit veya asetaldehit gibi bileşikler oluşturabilir.
+5.Toksik Etkileri
+Etilen, düşük konsantrasyonlarda genellikle zararsızdır, ancak yüksek konsantrasyonlarda solunum yolu irritasyonuna ve baş dönmesine neden olur.
+
+Metan (CH₄),
+1. Yapısı :
+•	Moleküler formülü: CH₄
+•	Yapısı: Tetrahedral (4 bağ açısı 109,5°)
+•	Bağlar: Karbon ile dört hidrojen arasında tekli kovalent bağlar
+2. Fiziksel Özellikleri
+•	Gaz halinde bulunur (oda sıcaklığında)
+•	Renksiz ve kokusuzdur
+•	Yoğunluğu havadan daha düşüktür
+•	Erime noktası: -182.5 °C
+•	Kaynama noktası: -161.5 °C
+3. Kimyasal Özellikleri
+•	Oldukça kararlı bir bileşiktir (C–H bağları güçlüdür)
+•	Yanıcıdır: Oksijenle tepkimeye girerek CO₂ ve H₂O oluşturur
+•	Halojenlerle reaksiyona girer (özellikle ışık altında):
+Substitüsyon reaksiyonları görülür (örneğin, klorla):
+•	Nitrasyon, sulfonasyon gibi aromatik tepkimelere girmez
+4. Tepkime Türleri
+•	Yanma tepkimesi
+•	Radikal halojenleme (özellikle Cl₂ ve Br₂ ile)
+•	Isı ve ışıkla ayrışabilir (piroliz veya kraking altında)
+5. Kullanım Alanları
+•	Doğal gazın ana bileşeni (%85-90)
+•	Yakıt olarak kullanılır (ısı ve enerji üretimi)
+•	Kimyasal sentezlerde başlangıç maddesi (örneğin, metanol, formaldehit üretimi)
+6. Çevresel Etki
+•	Sera gazı etkisi yüksektir (CO₂'den yaklaşık 25 kat daha güçlü)
+•	Atmosferdeki metan artışı iklim değişikliğine katkı sağlar.
+
+Benzen (C₆H₆)
+1.Yapı:
+• Kimyasal formülü C₆H₆ olan Aromatik bileşik: Benzen, aromatikliğin temel örneğidir. Altı karbon atomu halka şeklinde bağlanmıştır ve bu bağlar arasında rezonans vardır.
+2. Fiziksel Özellikleri
+•	Erime noktası: 5.5 °C
+•	Kaynama noktası: 80.1 °C
+•	Renk: Renksiz sıvı
+•	Koku: Tatlımsı, karakteristik aromatik koku
+•	Çözünürlük: Suda az çözünür; organik çözücülerde iyi çözünür.
+
+ 3.Kimyasal Özellikleri
+•	Kararlıdır: Rezonans yapısı sayesinde çok kararlıdır.
+•	Elektrofilik aromatik yer değiştirme (SEAr) reaksiyonlarına girer
+•	Katılma tepkimelerine karşı dirençlidir, çünkü aromatik yapısını kaybetmek istemez.
+•	Yanıcıdır, fakat yanarken dumanlı alev verir (yüksek C/H oranı nedeniyle).
+4.Toksik Etkileri:
+•	Uzun süreli maruziyet lösemi gibi sağlık sorunlarına yol açabilir.
+•	Uçucudur: Solunduğunda merkezi sinir sistemi üzerinde etkili olabilir.
+5.Kullanım Alanları: 
+•	Endüstride çözücü, plastik, reçine, sentetik kauçuk, boya ve deterjan üretiminde yaygın olarak kullanılır.
+Metanol (CH₃OH)
+1. Yapısı:
+•	Moleküler formülü: CH₄O ya da CH₃OH
+•	Fonksiyonel grup: Hidroksil grubu (–OH) Bu yapı, metanolü bir alkol yapar.
+
+2. Fiziksel Özellikleri
+•	Berrak, renksiz, uçucu bir sıvıdır.
+•	Kaynama noktası: ~64.7 °C
+•	Erime noktası: –97.6 °C
+•	Su ile tamamen karışabilir.
+Çünkü hem metanol hem de su hidrojen bağı kurabilir.
+3. Kimyasal Özellikleri
+- Reaktivite: Metanol, reaktif bir alkol olup birçok kimyasal tepkimeye girebilir.
+- Asidik/Bazik Özellikler: Zayıf bir asit ve baz olarak davranabilir.
+- Alkol Özellikleri: Metanol, alkoller sınıfına ait olduğu için alkollerle benzer özellikler gösterir.
+4.  Kimyasal Tepkimeleri
+- Yanma Tepkimesi: Metanol, oksijenle tepkimeye girerek karbondioksit ve su oluşturur. Bu tepkime enerji açığa çıkar:
+- Aldehit Oluşumu: Metanol, oksidasyon tepkimeleri ile formaldehit (metanal) oluşturabilir.
+- Estere Dönüşüm: Metanol, asitlerle tepkimeye girerek esterler oluşturabilir.
+5.Kullanım Alanları
+•	Organik sentezde çözücü ve reaktif olarak kullanılır.
+
+•	Metilasyon ajanı olarak görev alabilir.
+•	Formaldehit ve plastik üretiminde ara madde olarak kullanılır.
+6.Toksik Etkiler
+- Gözler: Metanol, gözlerde yanma, sulanma ve geçici görme kaybına neden olabilir. Yüksek dozlarda, kalıcı görme kaybı (metanolün metabolitleri olan formaldehit ve formik asit nedeniyle) meydana gelebilir.
+- Sinir Sistemi: Metanol, merkezi sinir sistemini etkileyerek baş ağrısı, baş dönmesi, bulantı, kusma, yorgunluk ve bilinç kaybına yol açabilir.
+- Metabolik Asidoz: Metanol, vücutta formik asit ve formaldehit gibi toksik metabolitlere dönüşür. Bu metabolitler, metabolik asidoza neden olabilir, bu da kan pH'ının düşmesine yol açar.
+- Karaciğer ve Böbrek Hasarı: Yüksek dozlarda metanol, karaciğer ve böbreklerde hasara yol açabilir.
+- Ölüm: Aşırı metanol alımı, ciddi sağlık sorunlarına ve ölümle sonuçlanabilecek durumlara yol açabilir.
+Amonyak (NH₃), 
+1.Yapı: formülü (NH3) ; her amonyak molekülü üç hidrojen atomu ve bir azot atomu içerir. 
+2.Fiziksel Özellikleri
+- Renk: Renksiz
+- Koku: Keskin ve rahatsız edici bir kokuya sahiptir.
+- Kaynama Noktası: -33.34 °C (sıvı amonyak)
+- Erime Noktası: -77.73 °C
+- Yoğunluk: Oda sıcaklığında gaz halinde hafif bir gazdır (hava yoğunluğunun yaklaşık %60'ı).
+3.Kimyasal Özellikleri
+- Amonyak, bazik özellikler gösterir. Su ile tepkimeye girdiğinde amonyum iyonu (NH₄⁺) oluşturur.
+- Amonyak, asitlerle (örneğin, hidroklorik asit) tepkimeye girerek tuzlar oluşturur (örneğin, amonyum klorür).
+- Amonyak, nitrat ve nitrit gibi bileşiklerin oluşumunda önemli bir rol oynar.
+-Amonyak Polar bir molekül olup, bu nedenle su gibi polar çözücülerde iyi çözünür.
+4. Kimyasal Tepkimeleri
+- Asit-Baz Tepkimeleri: Amonyak, asitlerle tepkimeye girerek amonyum tuzları oluşturur.
+- Oksidasyon: Amonyak, yüksek sıcaklıklarda oksijenle tepkimeye girerek azot oksitleri (NO, NO₂) oluşturabilir.
+- Haber Süreci: Amonyak, endüstriyel olarak azot ve hidrojen gazlarının tepkimesiyle üretilir.
+5. Toksik Etkileri
+Amonyak, yüksek konsantrasyonlarda toksik olabilir. Solunduğunda solunum yollarını tahriş edebilir ve gözlerde yanma hissine yol açabilir. Amonyak buharları, ciltle temas ettiğinde de
+6. Kullanım Alanları
+Alan	                                 Açıklama
+İlaç sentezi	Aminler, amin türevleri
+Boyar madde üretimi	Azot bileşikleri
+Plastik üretimi	Poliamidler (örneğin naylon)
+Zirai ilaçlar	Amonyak türevi pestisitler
+
+Propilen (C₃H₆)
+Yapısı:
+•	Kimyasal  formülü: C₃H₆ üç karbonlu ve bir çift bağ içeren doymamış bir hidrokarbondur.
+•	Yapı: CH₂=CH–CH₃
+(Bir uçta çift bağ, diğer uçta metil grubu)
+Fiziksel Özellikleri:
+•	Gaz hali: Oda sıcaklığında renksiz, yanıcı gazdır.
+•	Kaynama noktası: –47.6 °C
+•	Erime noktası: –185.2 °C
+•	Çözünürlük: Suda az çözünür, organik çözücülerde çözünür.
+3. Kimyasal Özelliklerin
+- Reaktivite: Propilen, çift bağa sahip olduğu için oldukça reaktiftir.
+- Polimerleşme: Propilen, polipropilen gibi polimerlerin sentezinde kullanılır.
+- Hidratasyon: Su ile tepkimeye girerek propanol (bir alkol) oluşturabilir.
+4. Kimyasal Tepkimeleri: 
+Hidrojenasyon (çift bağın indirgenmesi):
+Halojenleme:
+Hidrohalojenleme
+Polimerleşme: en önemli endüstriyel reaksiyon)
+Oksidasyon Tepkimeleri:
+Yanma Tepkimesi:
+5.Sanayi Kullanımları:
+•	Polipropilen üretimi
+•	Propilen oksit, izopropanol, akrilonitril gibi türevlerin üretimi
+•	Yakıt katkı maddesi veya sentez hammaddesi
+6. Toksik Etkileri:
+-Solunum Sistemi: Yüksek konsantrasyonlarda propilen, baş ağrısı, baş dönmesi, bulantı ve solunum zorluğuna neden olabilir. Uzun süreli maruz kalma, solunum yollarında tahrişe yol açabilir.
+- Sinir Sistemi: Yüksek dozlarda maruz kalma, merkezi sinir sistemi üzerinde etkili olabilir ve baş dönmesi, yorgunluk ve bilinç kaybı gibi belirtilere yol açabilir.
+- Gözler: Propilen buharları gözlerde tahrişe neden olabilir, bu da yanma hissi ve sulanma ile kendini gösterebilir.
+- Cilt: Ciltle temas, hafif tahrişe neden olabilir, ancak genellikle ciddi bir etki yaratmaz.
+
+Formaldehit (sistematik adıyla metanal) 
+1.Yapı:
+•	Moleküler formül: CH₂O
+•	Yapısı: H–C(=O)–H (bir karbonil grubu ve iki hidrojen bağlı)
+•	Karbonil grubu: Aldehit fonksiyonel grubudur (–CHO)
+2.Fiziksel Özellikleri:
+•	Oda sıcaklığında gaz hâlindedir (kaynama noktası ≈ –19 °C)
+•	Suda çok iyi çözünür → %37’lik sulu çözeltisine formalin denir
+•	Keskin, tahriş edici kokuludur
+•	Zehirli ve kanserojendir.
+3.Kimyasal Özellikleri:
+•	Formaldehit, karbonil grubu sayesinde reaktif bir bileşiktir:
+•	Aldehit özellikleri gösterir
+•	Nükleofillerle reaksiyona girer.
+•	Polimerleşmeye yatkındır.
+•	İndirgenebilir (alkole çevrilebilir).
+•	İndirgeme testlerine (Fehling, Tollens) pozitif yanıt verir.
+4.Kimyasal Reaksiyonları:
+a) İndirgenme:
+ b) Oksidasyon:
+c) Asetal Oluşumu (Alkollerle):
+d) Polimerleşme (Kondensasyon):
+e) Aminlerle reaksiyon (Schiff bazı oluşumu):
+5.Kullanım Alanları:
+•	Reçine üretimi (ürea-formaldehit, fenol-formaldehit)
+•	Tekstil ve kağıt sanayiinde sertleştirici
+•	Dezenfektan (formalin formunda)
+•	Organik sentezlerde ara madde (örn. pentaeritritol, 1,4-bütandiol)
+
+•	Solunduğunda, yutulduğunda veya cilde temas ettiğinde tehlikelidir
+•	Kanserojen olarak sınıflandırılmıştır (özellikle solunumla)
+•	Kullanım sırasında iyi havalandırma ve koruyucu ekipman gerekir.
+
+Karbon disülfür :( (CS₂)
+1.Yapı:
+Doğrusal molekül: S=C=S
+S=C çift bağları içerir (çift bağlar rezonans yapısına sahiptir).
+Yapı olarak karbondioksite (CO₂) benzer, ancak daha reaktiftir.
+Not: Karbon içerdiği için organik kimyada incelenebilir, ancak genellikle inorganik sınıflandırılır.
+2. Fiziksel Özellikleri:
+Özellik	Değer
+Molekül Ağırlığı	76.14 g/mol
+Fiziksel Durumu	Sıvı (oda sıcaklığında)
+Renk ve Koku	Renksiz, hoş olmayan keskin koku
+Erime Noktası	–111.6 °C
+Kaynama Noktası	46.3 °C
+Yoğunluk	1.26 g/cm³
+Uçuculuk	Yüksek (kolay buharlaşır)
+Suda çözünürlük	Düşük
+Organik çözücülerde çözünürlük	Yüksek
+3)Kimyasal Özellikleri:
+•	Yanıcıdır, yanınca karbondioksit ve kükürt dioksit oluşturur.
+•	C=S bağları nedeniyle elektrofiliktir.
+•	Çift bağlara sahip olduğu için çeşitli katılma reaksiyonlarına uygundur.
+•	Polimerleşmeye yatkın değildir, kararlı bir küçük moleküldür.
+•	Asidik veya bazik özellik göstermez, ancak bazı metallerle kompleks yapabilir.
+4)Kimyasal Reaksıyonları
+•	Yanma:
+•  Hidrojen sülfür ile tepkime (tiyokarbamidler oluşabilir):
+•  Alkollerle ve aminlerle tepkimeleri:
+Tiyokarbonatlar ve ditiyokarbamatlar elde edilir.
+•  Metallerle kompleksleşme:
+            Özellikle bazik metallerle koordinasyon bileşikleri oluşturur.
+5.Toksik Etkileri
+Maruziyet Yolu	Etki
+Soluma	Baş dönmesi, baş ağrısı, halsizlik, bilinç kaybı
+Uzun süreli maruziyet	Sinir sistemi bozuklukları, karaciğer ve böbrek hasarı
+Yüksek dozda	Ölüm riski (ani merkezi sinir sistemi depresyonu)
+Cilt teması	Ciltte tahriş ve kuruluk
+Aşırı derecede yanıcı ve patlayıcıdır. Kapalı ortamlarda patlama riski yüksektir.
+
+6.Kullanım Alanları
+Alan	Açıklama
+Viskon (rayon) üretimi	Selülozun çözülmesinde kullanılır.
+Lastik sanayi	Vulkanizasyon maddesi olarak katkı sağlar.
+Pestisit üretimi	Kükürt bazlı pestisitlerin öncül maddesidir.
+Organik çözücü	Yağlar, reçineler ve kauçuklar için etkili bir çözücüdür.
+Karbon tetraklorür ve karbon sülfür türevleri	Ara madde olarak görev yapar.
+Kimya araştırmaları	Ditiyokarbamatlar ve diğer bileşiklerin sentezinde kullanılır.
+
+Su (H₂O)
+1.Yapı: Eğik (bent) molekül geometrisi
+Bağ açısı: ~104.5°
+Oksijen:  2 bağ yapar ve 2 yalnız elektron çifti içerir.
+Molekül polar yapıdadır (dipol momenti yüksek).
+2.Fiziksel Özellikler
+Özellik	Değer
+Molekül Ağırlığı	18.02 g/mol
+Fiziksel Hali	Sıvı (oda sıcaklığında)
+Renk / Koku	Renksiz, kokusuz
+Erime Noktası	0 °C
+Kaynama Noktası	100 °C
+Yoğunluk (4 °C)	1.00 g/cm³
+Dielektrik Sabiti	Yüksek (~78.5, 25 °C’de)
+Buharlaşma ısısı	40.7 kJ/mol
+Yüzey gerilimi	Yüksek (~72 mN/m)
+Çözünürlük	Evrensel çözücü (çok sayıda maddeyi çözer)
+	
+3.Kimyasal Özellikler
+•	Amfoter maddedir: Asit ve baz gibi davranabilir.
+•	Kovalent bağlı, polar bir moleküldür.
+•	Zayıf şekilde kendi kendine iyonlaşabilir:
+•	Hidrojen bağı yapabilen bir moleküldür → yüksek kaynama noktası ve çözme kapasitesi sağlar.
+•	Elektrik iletkenliği saf hâlde düşüktür, fakat iyonlar çözündüğünde artar.
+4.Kimyasal Reaksiyonlar
+1.	Asit–baz reaksiyonları (amfoter özellik):
+2.	Hidroliz reaksiyonlarında rol alır:
+3.	Redoks tepkimelerinde rol alır:
+4.	Hidrat oluşumu:
+5.	Suyun iyonlaşması:
+5.Toksik Etkileri
+Aşırı su içme (hiponatremi)	:Kan sodyum seviyesinin düşmesi, beyin ödemi, nöbet
+Su zehirlenmesi	:Baş dönmesi, mide bulantısı, bilinç kaybı
+Yetersizlik (dehidrasyon)	:Baş ağrısı, halsizlik, organ bozukluğu
+İnhalasyon (boğulma) :Akciğerlerde sıvı birikimi, ölüm				
+6.Kullanım Alanları
+İçme ve yaşam için	:Temel yaşam gereksinimi
+Endüstriyel üretim	:Soğutma, buhar üretimi, solvent
+Kimya sanayi	:Reaksiyon ortamı, çözücü
+Tarım	:Sulama
+Enerji üretimi	:Hidroelektrik santraller
+Gıda endüstrisi	İşleme ve temizlik
+Temizlik ve hijyen	:Evsel ve endüstriyel temizlik
+Laboratuvarlar	:Saf su (distile/saflaştırılmış su) reaksiyon ortamı
+				
+
+				
+
+
+
+Fosfin(PH₃)
+1.Yapı:
+•	Fosfin, doğrusal olmayan bir molekül olup, piramidal geometriye sahiptir.
+•	Fosfor (P):  üç tek bağ yapar ve bir yalnız elektron çifti bulunur.
+•	Bağ açısı ~93.5°'dir.
+•	Molekül, polar özellik gösterir.
+2. Fiziksel Özellikleri:
+Moleküler Ağırlık	34.00 g/mol
+Fiziksel Hali	Gaz (oda sıcaklığında)
+Renk ve Koku	Renksiz, kötü, çürük balık kokusu
+Kaynama Noktası	–87.7 °C
+Erime Noktası	–133.5 °C
+Yoğunluk (hava = 1)	1.18 g/L (hava 1.00 g/L)
+Suda Çözünürlük	Çözünür (az miktarda)
+Alev Alma Özelliği	Yanıcı (hafif yakıcı)
+3.Kimyasal Özellikleri:
+•	Azot, oksijen veya halojenlerle reaksiyona girebilir.
+•	Zayıf bazik özellik gösterir, çünkü fosfor atomu elektron çiftine sahiptir ve asitlerle nötralize olabilir.
+•	Redüksiyon özellik gösterir: Fosfin, oksijenle reaksiyona girerek fosfor dioksit (P₄O₆) veya fosfor pentoksit (P₄O₁₀) üretir.
+•	İyonik bağ oluşturma kapasitesi yoktur, ancak bazı metal tuzlarıyla kompleksler oluşturabilir.
+4.Kimyasal Reaksıyonlar
+1.	Fosfor ile su tepkimesi:
+2.	Fosfinin oksijenle reaksiyonu:
+3.	Halojenlerle reaksiyon (fosfin halojen türevleri oluşturma):
+4.	Metallerle reaksiyon:
+5.Toksik Etkileri
+Soluma	:Baş ağrısı, baş dönmesi, nefes darlığı, öksürük
+Yüksek dozda:Solunum yetmezliği, akciğer ödemi, ölüm riski
+Cilt ve göz teması:Ciltte tahriş, gözde yanma ve kızarıklık
+Kronik maruziyet	:Karaciğer ve böbrek hasarı, nörotoksik etkiler
+Maruziyet sınırı OSHA: 0.3 ppm (8 saatlik çalışma süresi için)
+Fosfin son derece zehirlidir ve oksijenle temas edince yüksek oranda zehirli bileşikler (fosfor oksitler) oluşturabilir. Tüketimi veya solunması tehlikeli olduğu için özel önlemler gereklidir.
+6.Kullanım Alanları
+Tarım:Böcek öldürücü (fumiğasyon) olarak kullanılır. Fosfin gazı, depolama alanlarında zararlıları öldürmek için kullanılır.
+Kimya sanayi:Fosfor bileşiklerinin üretimi (özellikle fosfor pentoksit ve diğer türevler)
+Metallerin işlenmesi:Bazı metal üretim proseslerinde ve alüminyum üretimi gibi işlemlerde kullanılır.
+Laboratuvar kullanımı:Kimyasal sentezlerde, özellikle fosfor bileşiklerinin hazırlığında kullanılır.
+Karbonmonoksit(CO)
+1.Yapı:
+•	Doğrusal bir yapıya sahiptir.
+•	Karbon (C) ve oksijen (O) atomları arasında bir üçlü bağ bulunur.
+•	Elektron yapısı: Karbon, oksijene bağlanırken bir çift bağ yapar, ancak bu bağ rezonans gösterir.
+2.Fiziksel Özellikleri
+Molekül Ağırlığı	28.01 g/mol
+Fiziksel Hali	Gaz (oda sıcaklığında)
+Renk ve Koku	Renksiz, kokusuz
+Kaynama Noktası	–191.5°C
+Erime Noktası	–205°C
+Yoğunluk (hava = 1)	0.967
+Suda Çözünürlük	Düşük (ama çözünür)
+Alev Alma Özelliği	Yanıcı (çok düşük konsantrasyonlarda bile yanıcıdır)
+3.Kimyasal Özellikleri
+•	Karbon monoksit, zayıf bir indirgen maddedir, yani elektron verebilir.
+•	Elektron çifti nedeniyle, bazı metallerle kompleks bileşenler oluşturabilir.
+•	Karbon monoksit, asidler ve bazı metallerle tepkimeye girerek çeşitli bileşikler oluşturabilir.
+•	Lewis asidi olarak davranabilir.
+•	Hidrojen bağları kurma kapasitesine sahip değildir ve genellikle düşük reaktiviteye sahiptir.
+4.Kimyasal Reaksiyonları
+•	Yanma (oksidasyon):
+•	Metallerin indirgenmesi:
+•	Fosfor bileşiklerinin üretimi:
+•	Organik bileşiklerin sentezi:
+•	Yüksek sıcaklıklarda bazı metal tuzlarının indirgenmesi:
+5.Toksik Etkileri:
+Soluma:	Karbon monoksit, kanın oksijen taşıma kapasitesini engeller. Hemoglobinle bağlanarak karboksihemoglobin (HbCO) oluşturur ve dokulara oksijen taşınmasını engeller.
+Düşük dozda:Baş ağrısı, baş dönmesi, halsizlik, bulantı, yorgunluk.
+Yüksek dozda:Akut zehirlenme, solunum yetmezliği, beyin hasarı, ölüm.
+Kronik maruziyet:Uzun süreli maruziyet kalp hastalıkları, sinir sistemi bozuklukları, psikolojik etkiler oluşturabilir.
+Maruziyet sınırı:OSHA: 50 ppm (8 saatlik çalışma süresi için)
+6.Kullanım Alanları:
+Kimya sanayi:Karbon monoksit, asetik asit üretimi, metanol sentezi, ve fosgen üretimi gibi kimyasal reaksiyonlarda kullanılır.
+Metalürji:Karbon monoksit, metal oksitlerinin indirgenmesinde (örneğin demir üretimi) kullanılır.
+Enerji üretimi:Karbon monoksit, bazı gazlaştırma ve sentez gazları üretiminde kullanılır.
+Laboratuvarlar:Karbon monoksit, kimyasal sentezlerde reaktör ortamı olarak kullanılabilir.
+Otomotiv ve enerji santralleri:Karbon monoksit, yanma sırasında atık gaz olarak oluşur ve bazen enerji geri kazanımında kullanılır.
+Hidrojen(H₂)
+1.Yapı:
+•	Diatomik molekül olup, iki hidrojen atomunun kovalent bağ ile birleşmesiyle oluşur.
+•	Hidrojen (H) atomu, yalnızca bir elektrona sahiptir.
+•	Bağ uzunluğu: 74 pm
+•	Bağ açısı: 180° (doğrusal yapı)
+2. Fiziksel Özellikleri
+Molekül Ağırlığı	2.016 g/mol
+Fiziksel Hali	Gaz (oda sıcaklığında)
+Renk ve Koku	Renksiz, kokusuz
+Kaynama Noktası	–252.87 °C
+Erime Noktası	–259.16 °C
+Yoğunluk (hava = 1)	0.0899 g/L (hava 1.00 g/L)
+Suda Çözünürlük	Düşük (çok düşük çözünürlük)
+Alev Alma Özelliği	Yanıcı (çok düşük konsantrasyonlarda bile yanıcıdır)
+3.Kimyasal Özellikleri
+•	Hidrojen, oldukça reaktif bir elementtir ve birçok bileşik oluşturabilir.
+•	Oksijenle birleşerek su (H₂O) oluşturur ve bu reaksiyon oldukça ekzotermiktir:
+•	Hidrojen, genellikle indirgen bir ajan olarak çalışır. Elektron verebilir ve böylece diğer bileşiklerin indirgenmesine yardımcı olabilir.
+•	Asidik özellikler göstermez, çünkü elektron verici özelliği nedeniyle daha çok bazik özellikler gösterir.
+•	Asetilen (C₂H₂) gibi bazı organik bileşiklerle reaksiyona girerek organik bileşiklerin sentezinde kullanılır.
+4.Kimyasal Reaksiyonları
+	Hidrojenin oksijenle reaksiyonu (yanma):
+	Hidrojenin metallerle reaksiyonu (hidrojenasyon):
+	Hidrojenin halojenlerle reaksiyonu:
+	Hidrojenin azotla reaksiyonu:
+	Hidrojenin karbonla reaksiyonu:
+5.Toksik Etkileri:
+Yanıcı ve patlayıcıdır: Hidrojen, havada %4–75 arasında bir konsantrasyona ulaştığında patlayıcı karışım oluşturabilir.
+Yüksek konsantrasyonlarda boğulma riski:Hidrojen gazı, oksijenin yerine solunduğunda boğulmaya yol açabilir, çünkü vücutta yeterli oksijen sağlanamaz.Hidrojen gazının yüksek yoğunluklarda bulunduğu alanlarda, oksijen seviyesi düşer ve hipoksi (oksijen yetersizliği) meydana gelir.
+Yanıklar: Yüksek sıcaklıklarda hidrojeni yakalamak ve tutmak ciddi yanıklara yol açabilir.
+6.Kullanım Alanları:
+Kimya sanayi:Amonyak üretimi (Haber-Bosch prosesi), hidrojenasyon reaksiyonları (yağların ve yağ asitlerinin dönüştürülmesi), metanol üretimi.
+Enerji üretimi:Hidrojen, yakıt hücreleri aracılığıyla elektrik üretimi için kullanılır. Yüksek verimli ve temiz enerji kaynağıdır.
+Petrol sanayi:Petrol rafinasyonunda, sülfür giderme ve hidrojenasyon reaksiyonlarında kullanılır.
+Metallerin işlenmesi:Metal oksitlerinin indirgenmesinde (örneğin, demir üretimi), hidrojeni kullanmak mümkündür.
+Gıda endüstrisi:Yağların hidrojenasyonu işlemi (örneğin margarin üretimi).
+Elektrik üretimi:Hidrojen, yakıt hücrelerinde kullanılarak elektrik enerjisi üretir.
+Laboratuvarlar:Kimyasal sentezlerde ve araştırmalarda kullanılır.
+Uzay sanayi:Roket yakıtı olarak kullanılır. (Özellikle sıvı hidrojeni roketlerde yakıt olarak kullanmak yaygındır.)
+Oksijen(O₂)
+1.Yapı:
+•	Oksijen, diatomik bir molekül olup, iki oksijen atomu arasında kovalent bağ ile birleşir.
+•	Oksijen (O) atomları, çift bağla birbirlerine bağlanırlar.
+•	Molekül doğrusal yapıdadır ve bağ uzunluğu 121 pm'dir.
+•	Oksijenin, diatomik molekülünün bağ açısı 180°'dir.
+2.Fiziksel Özellikleri:
+Molekül Ağırlığı	32.00 g/mol
+Fiziksel Hali	Gaz (oda sıcaklığında)
+Renk ve Koku	Renksiz, kokusuz
+Kaynama Noktası	–183.0°C
+Erime Noktası	–218.79°C
+Yoğunluk (hava = 1)	1.429 g/L (hava = 1.00 g/L)
+Suda Çözünürlük	3.0 cm³ / 100 cm³ (suda çözünürlük)
+Alev Alma Özelliği	Oksijen yakıcıdır; kendisi yanmaz, ancak yakıcı özellik gösterir.
+3.Kimyasal Özellikleri
+•	Oksijen, güçlü bir oksitleyici (elektron alıcı) maddedir.
+•	Elektron alabilir, bu yüzden birçok bileşiği oksitler:
+•	Oksijen, özellikle metaller ve organik bileşiklerle reaksiyona girerek oksitler oluşturur.
+•	Oksijen, bir Lewis bazıdır; elektron çiftini kabul edebilir ve bazik özellik gösterebilir.
+•	Oksijen, diğer elementlerle birleşerek farklı oksitler ve peroksitler oluşturabilir. Örneğin:Peroksit (O₂²⁻) gibi bileşikler, oksijenin yüksek oksidasyon durumlarında bulunur.Süperoksit (O₂⁻) ve ozon (O₃) gibi daha karmaşık oksijen allotropları da vardır.
+4.Kimyasal Reaksiyonları:
+	Yanma Reaksiyonları:
+	Metallerin Oksitlenmesi:
+	Ozonun Oluşumu:
+	Asitlerle Reaksiyonlar:
+	Hidrojen Peroksit (H₂O₂) Üretimi:
+5.Toksik Etkileri:
+•	Oksijen, normal atmosfer koşullarında toksik değildir.
+•	Yüksek oksijen seviyeleri (özellikle %100 oksijenin solunması) oksijen zehirlenmesine yol açabilir. Bu, hücrelere zarar verir ve solunum problemleri yaratabilir.
+•	Oksijen zehirlenmesi genellikle 1-2 atmosfer basınçta meydana gelir ve baş ağrısı, bulantı, baş dönmesi ve solunum güçlüklerine yol açabilir.
+•	Aşırı oksijen seviyeleri uzun süre solunduğunda, pulmoner (akciğer) hasarı ve sinir sistemi bozuklukları gibi ağır sağlık sorunlarına yol açabilir.
+6.Kullanım Alanları:
+Tıp:Oksijen, solunum desteği sağlamak için hastanelerde kullanılır. Yoğun bakım ünitelerinde, özellikle solunum sıkıntısı çeken hastalar için oksijen tedavisi uygulanır.
+Sanayi:Oksijen, metal üretimi (özellikle çelik üretimi) ve kesme gibi işlemlerde kullanılır. Ayrıca oksijen, bazı kimyasal reaksiyonlarda katalizör olarak da işlev görür.
+Kimya sanayi:Oksijen, kimyasal üretimde (metanol, asetik asit gibi) ve oksidasyon reaksiyonlarında kullanılır.
+Enerji üretimi:Oksijen, yakıt hücrelerinde enerji üretimi için kullanılır. Ayrıca fosil yakıtların yanmasında enerji elde edilir.
+Havacılık:Uçaklar ve roketler için oksijen tedarik edilir. Roket yakıtı olarak kullanıldığında, oksijen yüksek verimle yakıtla birleşir.
+Su arıtma:Oksijen, suyun arıtılması, atık suyun işlenmesi ve biyolojik oksijen tüketiminin azaltılması gibi işlemlerde kullanılır.
+Ozon tabakasının korunması:Ozon (O₃), atmosferdeki oksijenin güneş ışığı ile parçalanarak oluşur ve zararlı ultraviyole ışınlarını engellemek için önemlidir.
+
