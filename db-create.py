@@ -5,7 +5,133 @@ with app.app_context():
     db.drop_all()
     db.create_all()
 
-    # Moleküller ve detaylı özellikleri
+    # Tüm özellikleri doğrudan tanımla
+    ozellikler_txt = {
+        "NH3": {
+            "Yapı": "Her amonyak molekülü üç hidrojen atomu ve bir azot atomu içerir. Formülü (NH3) olan amonyak molekülü piramidal bir yapıya sahiptir.",
+            "Fiziksel Özellikler": "Renk: Renksiz, Koku: Keskin ve rahatsız edici bir kokuya sahiptir. Kaynama Noktası: -33.34 °C (sıvı amonyak), Erime Noktası: -77.73 °C, Yoğunluk: Oda sıcaklığında gaz halinde hafif bir gazdır (hava yoğunluğunun yaklaşık %60'ı).",
+            "Kimyasal Özellikler": "Amonyak, bazik özellikler gösterir. Su ile tepkimeye girdiğinde amonyum iyonu (NH₄⁺) oluşturur. Amonyak, asitlerle tepkimeye girerek tuzlar oluşturur. Amonyak, nitrat ve nitrit gibi bileşiklerin oluşumunda önemli bir rol oynar. Polar bir molekül olup, su gibi polar çözücülerde iyi çözünür.",
+            "Kimyasal Tepkimeler": "Asit-Baz Tepkimeleri: Amonyak, asitlerle tepkimeye girerek amonyum tuzları oluşturur. Oksidasyon: Amonyak, yüksek sıcaklıklarda oksijenle tepkimeye girerek azot oksitleri (NO, NO₂) oluşturabilir. Haber Süreci: Amonyak, endüstriyel olarak azot ve hidrojen gazlarının tepkimesiyle üretilir.",
+            "Toksik Etkiler": "Amonyak, yüksek konsantrasyonlarda toksik olabilir. Solunduğunda solunum yollarını tahriş edebilir ve gözlerde yanma hissine yol açabilir. Amonyak buharları, ciltle temas ettiğinde de tahriş edicidir.",
+            "Kullanım Alanları": "İlaç sentezi (Aminler, amin türevleri), Boyar madde üretimi (Azot bileşikleri), Plastik üretimi (Poliamidler, örneğin naylon), Zirai ilaçlar (Amonyak türevi pestisitler)."
+        },
+        "H2": {
+            "Yapı": "Diatomik molekül olup, iki hidrojen atomunun kovalent bağ ile birleşmesiyle oluşur. Bağ uzunluğu: 74 pm. Bağ açısı: 180° (doğrusal yapı).",
+            "Fiziksel Özellikler": "Molekül Ağırlığı: 2.016 g/mol. Gaz halinde (oda sıcaklığında). Renksiz, kokusuz. Kaynama Noktası: –252.87 °C. Erime Noktası: –259.16 °C. Yoğunluk: 0.0899 g/L. Suda çözünürlük düşük.",
+            "Kimyasal Özellikler": "Oldukça reaktif bir elementtir ve birçok bileşik oluşturabilir. Oksijenle birleşerek su (H₂O) oluşturur. İndirgen ajan olarak çalışır. Elektron verebilir. Asidik özellikler göstermez, daha çok bazik özellikler gösterir.",
+            "Kimyasal Reaksiyonları": "Hidrojenin oksijenle reaksiyonu (yanma), Hidrojenin metallerle reaksiyonu (hidrojenasyon), Hidrojenin halojenlerle reaksiyonu, Hidrojenin azotla reaksiyonu, Hidrojenin karbonla reaksiyonu.",
+            "Toksik Etkiler": "Yanıcı ve patlayıcıdır (havada %4–75 konsantrasyon). Yüksek konsantrasyonlarda boğulma riski. Yanıklar: Yüksek sıcaklıklarda ciddi yanıklar.",
+            "Kullanım Alanları": "Kimya sanayi (Amonyak üretimi, hidrojenasyon), Enerji üretimi (yakıt hücreleri), Petrol sanayi, Metal işleme, Gıda endüstrisi, Elektrik üretimi, Laboratuvarlar, Uzay sanayi (roket yakıtı)."
+        },
+        "O2": {
+            "Yapı": "Oksijen, diatomik bir molekül olup, iki oksijen atomu arasında kovalent bağ ile birleşir. Molekül doğrusal yapıdadır ve bağ uzunluğu 121 pm'dir. Oksijenin, diatomik molekülünün bağ açısı 180°'dir.",
+            "Fiziksel Özellikler": "Molekül Ağırlığı: 32.00 g/mol, Fiziksel Hali: Gaz (oda sıcaklığında), Renk ve Koku: Renksiz, kokusuz, Kaynama Noktası: –183.0°C, Erime Noktası: –218.79°C, Yoğunluk: 1.429 g/L, Suda Çözünürlük: 3.0 cm³ / 100 cm³",
+            "Kimyasal Özellikler": "Oksijen, güçlü bir oksitleyici (elektron alıcı) maddedir. Elektron alabilir, birçok bileşiği oksitler. Özellikle metaller ve organik bileşiklerle reaksiyona girerek oksitler oluşturur. Bir Lewis bazıdır.",
+            "Kimyasal Reaksiyonlar": "Yanma Reaksiyonları, Metallerin Oksitlenmesi, Ozonun Oluşumu, Asitlerle Reaksiyonlar, Hidrojen Peroksit Üretimi.",
+            "Toksik Etkiler": "Normal atmosfer koşullarında toksik değildir. Yüksek oksijen seviyeleri oksijen zehirlenmesine yol açabilir. 1-2 atmosfer basınçta zehirlenme belirtileri: baş ağrısı, bulantı, baş dönmesi ve solunum güçlükleri.",
+            "Kullanım Alanları": "Tıp (solunum desteği), Sanayi (metal üretimi), Kimya sanayi (metanol, asetik asit üretimi), Enerji üretimi, Havacılık, Su arıtma, Ozon tabakası oluşumu."
+        },
+        "C2H2": {
+            "Yapı": "Kimyasal formülü C₂H₂ olan Asetilen, iki karbon atomu arasında üçlü bağ bulunan en basit alkin bileşiğidir. Her bir karbon atomu, bir hidrojen atomuna bağlıdır.",
+            "Fiziksel Özellikler": "Ağır gaz: Oda sıcaklığında gaz halindedir. Kokusuz: Kendine özgü bir kokusu yoktur, ancak yanma sırasında farklı kokular oluşabilir. Su ile az çözünür, organik çözücülerde iyi çözünür.",
+            "Kimyasal Özellikler": "Yanıcı bir gazdır ve yanma reaksiyonları sırasında yüksek sıcaklıklar oluşturur. Hidrojenasyon, halojenasyon ve polimerizasyon gibi reaksiyonlar gösterebilir. Zayıf asit olarak kabul edilir ve alkali metallerle reaksiyona girerek asetilid tuzları oluşturabilir.",
+            "Kimyasal Reaksiyonlar": "Yanma tepkimesi, Hidrojenasyon tepkimesi, Halojenasyon tepkimesi, Hidrasyon tepkimesi, Polimerizasyon tepkimesi.",
+            "Toksik Etkiler": "Yüksek konsantrasyonlarda solunduğunda boğulma riski. Merkezi sinir sistemi üzerinde baskılayıcı etki. Baş ağrısı, baş dönmesi ve bilinç kaybı.",
+            "Kullanım Alanları": "Kaynak gazı olarak kullanılır. Metal kesme ve kaynak işlemlerinde yaygın olarak tercih edilir. Organik sentezlerde başlangıç maddesi. Aydınlatma sistemlerinde (tarihi kullanım)."
+        },
+        "CO2": {
+            "Yapı": "Doğrusal yapı: O=C=O, İki çift bağ (C=O) içerir, Kutuplanmamış (apolar) bir moleküldür.",
+            "Fiziksel Özellikler": "Renk ve Koku: Renksiz ve kokusuz bir gazdır. Erime ve Kaynama Noktası: CO₂, gaz halinde oda sıcaklığında bulunur, ancak -78.5°C'de katı (süblimleşir) hale geçer ve -56.6°C'de sıvı hale gelir. Yoğunluk: Karbondioksit, havadan daha yoğun bir gazdır. Çözünürlük: CO₂, su içinde çözünür.",
+            "Kimyasal Özellikler": "Asidik Özellik: CO₂, su ile birleştiğinde karbonik asit (H₂CO₃) oluşturur. Elektron Çekici Yapı: Karbondioksit moleküler yapısında karbon atomu yüksek elektronegatifliğe sahiptir.",
+            "Kimyasal Reaksiyonlar": "Karbonil Grubu, Karboksilasyon Reaksiyonları (Grignard, Aldol Yoğunlaşması ve Diğer Polimerizasyon Reaksiyonları), Fotosentez reaksiyonları.",
+            "Toksik Etkiler": "CO₂, konsantrasyonu arttığında solunum için tehlikeli olabilir. Yüksek konsantrasyonlarda (yaklaşık %5 ve üzerinde) boğulma riski doğurabilir.",
+            "Kullanım Alanları": "Kimyasal Sentezler, Organik Sentez Reaksiyonları, Karboksilat İyonları ve Esterler üretimi, Süperkritik CO₂ uygulamaları."
+        },
+        "N2": {
+            "Yapı": "İki azot atomu arasında üçlü bağ bulunan diatomik bir molekül. Bağ uzunluğu 1.0976 Å.",
+            "Fiziksel Özellikler": "Renksiz, kokusuz ve tatsız bir gaz. Kaynama noktası: -195.8°C. Erime noktası: -210.0°C. Havadan biraz daha hafif.",
+            "Kimyasal Özellikler": "Oldukça kararlı bir yapıya sahip. Üçlü bağ nedeniyle reaktifliği düşük. Normal koşullarda inert.",
+            "Toksik Etkiler": "Doğrudan toksik değil fakat yüksek konsantrasyonlarda oksijen yetersizliğine yol açabilir.",
+            "Kullanım Alanları": "Amonyak üretimi, inert atmosfer oluşturma, soğutma sistemleri, gıda paketleme."
+        },
+        "C6H6": {
+            "Yapı": "Aromatik halka yapısı (6 karbon atomu), Düzlemsel geometri, Rezonans yapısı mevcut, Her karbon atomu bir hidrojen atomuna bağlı.",
+            "Fiziksel Özellikler": "Erime noktası: 5.5°C, Kaynama noktası: 80.1°C, Renksiz sıvı, Tatlımsı aromatik koku, Suda az çözünür, Organik çözücülerde iyi çözünür.",
+            "Kimyasal Özellikler": "Kararlı yapı (rezonans), Aromatik özellik, SEAr reaksiyonları verir, Katılma reaksiyonlarına dirençli, Yanıcı (dumanlı alev).",
+            "Kimyasal Reaksiyonlar": "Elektrofilik aromatik sübstitüsyon, Friedel-Crafts alkilleme/açilleme, Nitrasyon, Sülfonasyon, Halojenasyon.",
+            "Toksik Etkiler": "Kanserojen etki (lösemi riski), Merkezi sinir sistemi üzerinde toksik, Uzun süreli maruziyette kan hastalıkları, Solunduğunda baş dönmesi ve bilinç kaybı.",
+            "Kullanım Alanları": "Endüstriyel çözücü, Plastik üretimi, Reçine üretimi, Sentetik kauçuk üretimi, Boya ve ilaç endüstrisi hammaddesi."
+        },
+        "CO": {
+            "Yapı": "Doğrusal bir yapıya sahiptir. Karbon (C) ve oksijen (O) atomları arasında bir üçlü bağ bulunur.",
+            "Fiziksel Özellikler": "Molekül Ağırlığı: 28.01 g/mol. Gaz halinde, renksiz, kokusuz. Kaynama Noktası: –191.5°C, Erime Noktası: –205°C. Yoğunluk: 0.967 (hava=1). Suda çözünürlük düşük.",
+            "Kimyasal Özellikler": "Zayıf indirgen madde, elektron verebilir. Metallerle kompleks bileşikler oluşturur. Lewis asidi olarak davranır.",
+            "Kimyasal Reaksiyonlar": "Yanma (oksidasyon), metallerin indirgenmesi, fosfor bileşikleri üretimi, organik bileşiklerin sentezi.",
+            "Toksik Etkiler": "Hemoglobinle bağlanır, dokulara oksijen taşınmasını engeller. Düşük dozda: baş ağrısı, baş dönmesi. Yüksek dozda: solunum yetmezliği, beyin hasarı, ölüm.",
+            "Kullanım Alanları": "Kimya sanayi (asetik asit üretimi), metalürji, enerji üretimi, laboratuvarlar, otomotiv sektörü."
+        },
+        "CH2O": {
+            "Yapı": "Moleküler formül: CH₂O, Yapısı: H-C(=O)-H (bir karbonil grubu ve iki hidrojen bağlı), Karbonil grubu: Aldehit fonksiyonel grubudur (-CHO).",
+            "Fiziksel Özellikler": "Oda sıcaklığında gaz hâlindedir (kaynama noktası ≈ -19°C), Suda çok iyi çözünür → %37'lik sulu çözeltisine formalin denir, Keskin, tahriş edici kokuludur.",
+            "Kimyasal Özellikler": "Formaldehit karbonil grubu sayesinde reaktif bir bileşiktir, Aldehit özellikleri gösterir, Nükleofillerle reaksiyona girer, Polimerleşmeye yatkındır, İndirgenebilir, İndirgeme testlerine pozitif yanıt verir.",
+            "Toksik Etkiler": "Zehirli ve kanserojendir, Solunduğunda, yutulduğunda veya cilde temas ettiğinde tehlikelidir, Kanserojen olarak sınıflandırılmıştır.",
+            "Kullanım Alanları": "Reçine üretimi (ürea-formaldehit, fenol-formaldehit), Tekstil ve kağıt sanayiinde sertleştirici, Dezenfektan (formalin formunda), Organik sentezlerde ara madde."
+        },
+        "CS2": {
+            "Yapı": "Doğrusal molekül: S=C=S, S=C çift bağları içerir (rezonans yapısı), CO₂'ye benzer yapı.",
+            "Fiziksel Özellikler": "Molekül Ağırlığı: 76.14 g/mol, Sıvı (oda sıcaklığında), Renksiz, hoş olmayan keskin koku, Erime Noktası: -111.6°C, Kaynama Noktası: 46.3°C, Yoğunluk: 1.26 g/cm³.",
+            "Kimyasal Özellikler": "Yanıcı, elektrofilik, çift bağlara sahip, polimerleşmeye yatkın değil, bazı metallerle kompleks yapabilir.",
+            "Toksik Etkiler": "Soluma: Baş dönmesi, baş ağrısı, bilinç kaybı. Uzun süreli maruziyet: Sinir sistemi bozuklukları. Yüksek dozda: Ölüm riski.",
+            "Kullanım Alanları": "Viskon üretimi, Lastik sanayi, Pestisit üretimi, Organik çözücü, Kimya araştırmaları."
+        },
+        "CH3OH": {
+            "Yapı": "Moleküler formülü: CH₄O ya da CH₃OH, Hidroksil grubu (-OH) içerir.",
+            "Fiziksel Özellikler": "Berrak, renksiz, uçucu sıvı, Kaynama noktası: ~64.7°C, Erime noktası: -97.6°C, Su ile tamamen karışabilir.",
+            "Kimyasal Özellikler": "Reaktif alkol, Zayıf asit ve baz özellikleri gösterir, Alkoller sınıfına ait.",
+            "Toksik Etkiler": "Gözlerde yanma ve görme kaybı, Sinir sistemi hasarı, Metabolik asidoz, Karaciğer ve böbrek hasarı, Ölüm riski.",
+            "Kullanım Alanları": "Çözücü, Yakıt, Kimyasal sentez, Metilasyon ajanı, Formaldehit ve plastik üretimi."
+        },
+        "C3H6": {
+            "Yapı": "Kimyasal formülü: C₃H₆, üç karbonlu ve bir çift bağ içeren doymamış hidrokarbon, CH₂=CH-CH₃ yapısı.",
+            "Fiziksel Özellikler": "Gaz halinde, Renksiz, Kaynama noktası: -47.6°C, Erime noktası: -185.2°C, Suda az çözünür.",
+            "Kimyasal Özellikler": "Reaktif çift bağ, Polimerleşme yatkınlığı, Hidratasyon ve halojenleme reaksiyonları verir.",
+            "Toksik Etkiler": "Solunum sistemi irritasyonu, Merkezi sinir sistemi etkileri, Göz ve cilt tahrişi.",
+            "Kullanım Alanları": "Polipropilen üretimi, Propilen oksit üretimi, Yakıt katkısı, Sentetik fiber üretimi."
+        },
+        "C2H4": {
+            "Yapı": "İki karbon atomu arasında bir çift bağ (C=C) bulunur. Her karbon atomu ayrıca iki hidrojen atomuna bağlanır. Düzlemsel geometriye sahiptir.",
+            "Fiziksel Özellikler": "Gaz halinde (oda sıcaklığında). Renksiz, hafif tatlımsı kokusu vardır. Erime noktası: –169 °C, Kaynama noktası: –104 °C. Suda az çözünür, organik çözücülerde iyi çözünür.",
+            "Kimyasal Özellikler": "Reaktif çift bağ içerir. Hidrojenasyon, polimerizasyon ve halojenasyon reaksiyonlarına girer. Alkenlerin karakteristik özelliklerini gösterir.",
+            "Kimyasal Reaksiyonlar": "Hidratasyon: su ile tepkimeye girerek alkol (etanol) oluşturur. Oksidasyon: oksijenle tepkimeye girerek etilen oksit oluşturur. Polimerizasyon: polietilen oluşturur.",
+            "Toksik Etkiler": "Yüksek konsantrasyonlarda solunum yolu irritasyonuna ve baş dönmesine neden olur. Merkezi sinir sistemi depresyonu. Uzun süreli maruziyette nörolojik etkiler.",
+            "Kullanım Alanları": "Polietilen üretimi, Etilen glikol üretimi, Bitkisel hormon olarak kullanım, Meyvelerin olgunlaşmasını hızlandırma."
+        },
+        "H2O": {
+            "Yapı": "Eğik (bent) geometri, Bağ açısı: 104.5°, Oksijen atomu 2 bağ yapar ve 2 yalnız elektron çifti içerir, Molekül polar yapıdadır.",
+            "Fiziksel Özellikler": "Sıvı (oda sıcaklığında), Renksiz ve kokusuz, Erime Noktası: 0°C, Kaynama Noktası: 100°C, Yoğunluk: 1.00 g/cm³ (4°C'de), Yüksek yüzey gerilimi (~72 mN/m).",
+            "Kimyasal Özellikler": "Amfoter madde (asit ve baz gibi davranabilir), Kovalent bağlı polar molekül, Zayıf şekilde kendi kendine iyonlaşabilir, Hidrojen bağı yapabilir.",
+            "Kimyasal Reaksiyonlar": "Asit-baz reaksiyonları, Hidroliz reaksiyonları, Redoks tepkimeleri, Hidrat oluşumu, Suyun iyonlaşması.",
+            "Toksik Etkiler": "Aşırı alımda hiponatremi (kan sodyum seviyesinin düşmesi), Yetersizlikte dehidrasyon, İnhalasyonda boğulma riski.",
+            "Kullanım Alanları": "Yaşamsal önemi, Endüstriyel prosesler, Çözücü olarak, Enerji üretimi, Tarım, Temizlik ve hijyen."
+        },
+        "PH3": {
+            "Yapı": "Piramidal geometri, Fosfor üç tek bağ yapar ve bir yalnız elektron çifti içerir, Bağ açısı ~93.5°, Polar molekül.",
+            "Fiziksel Özellikler": "Gaz halinde (oda sıcaklığında), Renksiz, çürük balık kokusu, Kaynama noktası: -87.7°C, Erime noktası: -133.5°C, Suda az çözünür.",
+            "Kimyasal Özellikler": "Zayıf bazik özellik gösterir, Redüksiyon özellik gösterir, Metal kompleksleri oluşturur.",
+            "Kimyasal Reaksiyonlar": "Fosforun su ile tepkimesi, Fosfinin oksijenle reaksiyonu, Halojenlerle reaksiyon, Metallerle kompleks oluşumu.",
+            "Toksik Etkiler": "Yüksek toksisiteli, Solunum yetmezliği riski, Sinir sistemi hasarı, Karaciğer ve böbrek hasarı.",
+            "Kullanım Alanları": "Böcek öldürücü (fumigasyon), Fosfor bileşikleri üretimi, Metal işleme, Kimyasal sentezler."
+        },
+        "CH4": {
+            "Yapı": "Moleküler formülü: CH₄, Tetrahedral yapı (4 bağ açısı 109,5°), Karbon ile dört hidrojen arasında tekli kovalent bağlar.",
+            "Fiziksel Özellikler": "Gaz halinde (oda sıcaklığında), Renksiz ve kokusuz, Yoğunluğu havadan düşük, Erime noktası: -182.5°C, Kaynama noktası: -161.5°C.",
+            "Kimyasal Özellikler": "Oldukça kararlı bir bileşik (C–H bağları güçlü), Yanıcı, oksijenle tepkimeye girerek CO₂ ve H₂O oluşturur, Halojenlerle reaksiyona girer.",
+            "Kimyasal Reaksiyonlar": "Yanma tepkimesi, Radikal halojenleme (Cl₂ ve Br₂ ile), Isı ve ışıkla ayrışma (piroliz veya kraking).",
+            "Toksik Etkiler": "Doğrudan toksik değil ancak yüksek konsantrasyonlarda boğulma riski, Sera gazı etkisi CO₂'den 25 kat daha güçlü.",
+            "Kullanım Alanları": "Doğal gazın ana bileşeni (%85-90), Yakıt olarak kullanım (ısı ve enerji üretimi), Kimyasal sentezlerde başlangıç maddesi (metanol, formaldehit üretimi)."
+        }
+    }
+
     molekuller = [
         {
             "ad": "Amonyak",
@@ -14,78 +140,8 @@ with app.app_context():
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Amonyak.jpeg",
             "dosya_3d": "nh3.obj",
-            "ozellikler": ["Bazik", "Keskin kokulu", "Suda çözünür", "Gübre üretiminde kullanılır", "Temizlik malzemelerinde kullanılır"],
-            "silinebilir": False  # Varsayılan moleküller silinemez
-        },
-        {
-            "ad": "Asetilen",
-            "kimyasal_formul": "C2H2",
-            "aciklama": "Asetilen, iki karbon ve iki hidrojen atomundan oluşur. Kaynak işlemlerinde ve kimyasal sentezlerde kullanılır.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Asetilen.jpeg",
-            "dosya_3d": "asetilen.obj",
-            "ozellikler": ["Yanıcı", "Renksiz", "Tatlı kokulu", "Kaynak işlemlerinde kullanılır", "Kimyasal sentez"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Azot",
-            "kimyasal_formul": "N2",
-            "aciklama": "Azot, iki azot atomundan oluşur. Atmosferin yaklaşık %78'ini oluşturur ve canlılar için önemli bir elementtir.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Azot.jpeg",
-            "dosya_3d": "n2.obj",
-            "ozellikler": ["Diatomik", "Renksiz", "Kokusuz", "Atmosferde bol bulunur", "Reaktif değildir"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Benzen",
-            "kimyasal_formul": "C6H6",
-            "aciklama": "Benzen, altı karbon ve altı hidrojen atomundan oluşur. Endüstride çözücü olarak kullanılır.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Benzen.jpeg",
-            "dosya_3d": "benzen.obj",
-            "ozellikler": ["Renksiz", "Tatlı kokulu", "Çözücü", "Yanıcı", "Endüstride kullanılır"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Metan",
-            "kimyasal_formul": "CH4",
-            "aciklama": "Metan, bir karbon ve dört hidrojen atomundan oluşur. Doğal gazın ana bileşenidir ve enerji kaynağı olarak kullanılır.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/CH4.jpeg.jpg",
-            "dosya_3d": "CH4.obj",
-            "ozellikler": ["Yanıcı", "Renksiz", "Kokusuz", "Sera gazı", "Doğal gazın ana bileşeni"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Etilen",
-            "kimyasal_formul": "C2H4",
-            "aciklama": "Etilen, iki karbon ve dört hidrojen atomundan oluşur. Plastik üretiminde kullanılır ve bitkisel hormon olarak görev yapar.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Etilen.jpeg",
-            "dosya_3d": "etilen.obj",
-            "ozellikler": ["Yanıcı", "Renksiz", "Tatlı kokulu", "Plastik üretiminde kullanılır", "Bitkisel hormon"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Formaldehit",
-            "kimyasal_formul": "CH2O",
-            "aciklama": "Formaldehit, bir karbon, iki hidrojen ve bir oksijen atomundan oluşur. Endüstride ve biyolojik örneklerin korunmasında kullanılır.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Formaldehit.jpeg",
-            "dosya_3d": "formaldehit.obj",
-            "ozellikler": ["Keskin kokulu", "Renksiz", "Toksik", "Dezenfektan", "Endüstride kullanılır"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Fosfin",
-            "kimyasal_formul": "PH3",
-            "aciklama": "Fosfin, bir fosfor ve üç hidrojen atomundan oluşur. Zehirli bir gazdır ve yarı iletken endüstrisinde kullanılır.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Fosfin.jpeg",
-            "dosya_3d": "fosfin.obj",
-            "ozellikler": ["Zehirli", "Renksiz", "Keskin kokulu", "Yarı iletken endüstrisinde kullanılır", "Yanıcı"],
-            "silinebilir": False
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("NH3", {})
         },
         {
             "ad": "Hidrojen",
@@ -94,48 +150,8 @@ with app.app_context():
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Hidrojen.jpeg",
             "dosya_3d": "H2.obj",
-            "ozellikler": ["Diatomik", "Renksiz", "Kokusuz", "Yanıcı", "Enerji kaynağı"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Karbon Dioksit",
-            "kimyasal_formul": "CO2",
-            "aciklama": "Karbon dioksit, bir karbon ve iki oksijen atomundan oluşur. Fotosentezde kullanılır ve solunum sonucu açığa çıkar.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Karbon dioksit.jpeg",
-            "dosya_3d": "CO2.obj",
-            "ozellikler": ["Diatomik", "Renksiz", "Kokusuz", "Solunum için gerekli", "Yanıcı maddeleri destekler"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Karbon Disülfür",
-            "kimyasal_formul": "CS2",
-            "aciklama": "Karbon disülfür, bir karbon ve iki kükürt atomundan oluşur. Çözücü olarak ve kimyasal sentezlerde kullanılır.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/karbon disülfür.jpeg",
-            "dosya_3d": "karbon disülfür.obj",
-            "ozellikler": ["Yanıcı", "Renksiz", "Keskin kokulu", "Çözücü", "Kimyasal sentez"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Karbon Monoksit",
-            "kimyasal_formul": "CO",
-            "aciklama": "Karbon monoksit, bir karbon ve bir oksijen atomundan oluşur. Zehirli bir gazdır ve yanma süreçlerinde oluşur.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/karbon monoksit.jpeg",
-            "dosya_3d": "karbon monoksit.obj",
-            "ozellikler": ["Zehirli", "Renksiz", "Kokusuz", "Yanma ürünü", "Toksik"],
-            "silinebilir": False
-        },
-        {
-            "ad": "Metanol",
-            "kimyasal_formul": "CH3OH",
-            "aciklama": "Metanol, bir karbon, dört hidrojen ve bir oksijen atomundan oluşur. Çözücü ve yakıt olarak kullanılır.",
-            "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Metanol.jpeg",
-            "dosya_3d": "metanol.obj",
-            "ozellikler": ["Yanıcı", "Renksiz", "Çözücü", "Yakıt", "Toksik"],
-            "silinebilir": False
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("H2", {})
         },
         {
             "ad": "Oksijen",
@@ -144,32 +160,141 @@ with app.app_context():
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Oksijen.jpeg",
             "dosya_3d": "o2.obj",
-            "ozellikler": ["Diatomik", "Renksiz", "Kokusuz", "Solunum için gerekli", "Yanmayı destekler"],
-            "silinebilir": False
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("O2", {})
+        },
+        {
+            "ad": "Asetilen",
+            "kimyasal_formul": "C2H2",
+            "aciklama": "Asetilen, iki karbon atomu arasında üçlü bağ bulunan en basit alkin bileşiğidir. Metal kesme ve kaynak işlemlerinde yaygın olarak kullanılır.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Asetilen.jpeg",
+            "dosya_3d": "c2h2.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("C2H2", {})
+        },
+        {
+            "ad": "Karbondioksit",
+            "kimyasal_formul": "CO2",
+            "aciklama": "Karbon dioksit, atmosferde bulunan ve fotosentezde kullanılan önemli bir gazdır.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Karbon dioksit.jpeg",
+            "dosya_3d": "CO2.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("CO2", {})
+        },
+        {
+            "ad": "Azot",
+            "kimyasal_formul": "N2",
+            "aciklama": "Azot, iki azot atomundan oluşur. Atmosferin yaklaşık %78'ini oluşturur ve canlılar için önemli bir elementtir.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Azot.jpeg",
+            "dosya_3d": "n2.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("N2", {})
+        },
+        {
+            "ad": "Karbon Monoksit",
+            "kimyasal_formul": "CO",
+            "aciklama": "Karbon monoksit, karbon ve oksijen atomları arasında üçlü bağ içeren doğrusal bir moleküldür.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/karbon monoksit.jpeg",
+            "dosya_3d": "co.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("CO", {})
+        },
+        {
+            "ad": "Formaldehit",
+            "kimyasal_formul": "CH2O",
+            "aciklama": "Formaldehit, bir karbon, iki hidrojen ve bir oksijen atomundan oluşan aldehittir.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Formaldehit.jpeg",
+            "dosya_3d": "ch2o.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("CH2O", {})
+        },
+        {
+            "ad": "Karbon Disülfür",
+            "kimyasal_formul": "CS2",
+            "aciklama": "Karbon disülfür, karbon ve kükürt atomları arasında çift bağ içeren doğrusal bir moleküldür.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Karbon Disülfür.jpeg",
+            "dosya_3d": "cs2.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("CS2", {})
+        },
+        {
+            "ad": "Metanol",
+            "kimyasal_formul": "CH3OH",
+            "aciklama": "Metanol, bir karbon, üç hidrojen ve bir hidroksil grubu içeren basit bir alkoldür.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Metanol.jpeg",
+            "dosya_3d": "ch3oh.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("CH3OH", {})
         },
         {
             "ad": "Propilen",
             "kimyasal_formul": "C3H6",
-            "aciklama": "Propilen, üç karbon ve altı hidrojen atomundan oluşur. Polipropilen plastik üretiminde kullanılır.",
+            "aciklama": "Propilen, üç karbonlu ve bir çift bağ içeren doymamış bir hidrokarbondur.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Propilen.jpeg",
-            "dosya_3d": "propilen.obj",
-            "ozellikler": ["Yanıcı", "Renksiz", "Hafif kokulu", "Polipropilen üretiminde kullanılır", "Petrokimya"],
-            "silinebilir": False
+            "dosya_3d": "c3h6.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("C3H6", {})
+        },
+        {
+            "ad": "Etilen",
+            "kimyasal_formul": "C2H4",
+            "aciklama": "Etilen, iki karbon atomu arasında bir çift bağ içeren basit bir alken bileşiğidir.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Etilen.jpeg",
+            "dosya_3d": "c2h4.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("C2H4", {})
         },
         {
             "ad": "Su",
             "kimyasal_formul": "H2O",
-            "aciklama": "Su, yaşamın temel taşıdır. İki hidrojen ve bir oksijen atomundan oluşur. Polar yapısı sayesinde birçok maddeyi çözer ve canlılar için hayati bir çözücüdür.",
+            "aciklama": "Su, bir oksijen ve iki hidrojen atomundan oluşan yaşam için temel bir moleküldür.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Su.jpeg",
-            "dosya_3d": "H2O.obj",
-            "ozellikler": ["Polar", "Çözücü", "Yüksek yüzey gerilimi", "Isı kapasitesi yüksek", "Donduğunda hacmi artar"],
-            "silinebilir": False
+            "dosya_3d": "h2o.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("H2O", {})
+        },
+        {
+            "ad": "Fosfin",
+            "kimyasal_formul": "PH3",
+            "aciklama": "Fosfin, bir fosfor ve üç hidrojen atomundan oluşan toksik bir gazdır.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Fosfin.jpeg",
+            "dosya_3d": "ph3.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("PH3", {})
+        },
+        {
+            "ad": "Metan",
+            "kimyasal_formul": "CH4",
+            "aciklama": "Metan, bir karbon ve dört hidrojen atomundan oluşan en basit alkan bileşiğidir. Doğal gazın ana bileşenidir.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/CH4.jpeg.jpg",
+            "dosya_3d": "ch4.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("CH4", {})
+        },
+        {
+            "ad": "Benzen",
+            "kimyasal_formul": "C6H6",
+            "aciklama": "Benzen, altı karbon atomunun halka şeklinde dizildiği ve her karbona bir hidrojen bağlandığı aromatik bir hidrokarbondur.",
+            "tur": "kovalent",
+            "yapisal_resim_url": "/static/2d/Benzen.jpeg",
+            "dosya_3d": "c6h6.obj",
+            "silinebilir": False,
+            "ozellikler": ozellikler_txt.get("C6H6", {})
         }
     ]
 
-    # Molekülleri ve özellikleri veritabanına ekle
     for molekul_data in molekuller:
         molekul = Molekul(
             ad=molekul_data["ad"],
@@ -177,56 +302,26 @@ with app.app_context():
             aciklama=molekul_data["aciklama"],
             tur=molekul_data["tur"],
             dosya_3d=molekul_data["dosya_3d"],
-            silinebilir=molekul_data.get("silinebilir", False)  # Varsayılan olarak False
+            silinebilir=molekul_data.get("silinebilir", False)
         )
         db.session.add(molekul)
         db.session.commit()
 
-        # Yapısal görünüm resmi ekle
         yapisal_gorunum = MolekulYapisi(
             resim_url=molekul_data["yapisal_resim_url"],
             molekul_id=molekul.id
         )
         db.session.add(yapisal_gorunum)
 
-        # Özellikleri ekle
-        for ozellik_tanim in molekul_data["ozellikler"]:
+        # Add properties directly from molecule data
+        for baslik, deger in molekul_data.get("ozellikler", {}).items():
             ozellik = Ozellik(
-                tanim=ozellik_tanim, 
+                tanim=f"{baslik}: {deger}",
                 molekul_id=molekul.id,
                 aktif=True,
-                silinebilir=False  # Varsayılan özellikler silinemez
+                silinebilir=False
             )
             db.session.add(ozellik)
-        
-        # Her moleküle 2 yeni silinebilir özellik ekle
-        ekstra_ozellikler = {
-            "NH3": ["Soğutma sistemlerinde kullanılır", "Endüstriyel üretimde önemlidir"],
-            "C2H2": ["Metalurjide kullanılır", "Yüksek ısıda yanma özelliği"],
-            "N2": ["Gıda paketlemede kullanılır", "Kriyojenik uygulamalarda kullanılır"],
-            "C6H6": ["Organik sentezde kullanılır", "Petrokimya endüstrisinde önemli"],
-            "CH4": ["Biyogaz üretiminde bulunur", "Atmosferde doğal olarak bulunur"],
-            "C2H4": ["Meyvelerin olgunlaşmasını sağlar", "Polietilen üretiminde kullanılır"],
-            "CH2O": ["Laboratuvarlarda koruyucu", "Tekstil endüstrisinde kullanılır"],
-            "PH3": ["Elektronik endüstrisinde kullanılır", "Böcek ilacı olarak kullanılır"],
-            "H2": ["Yakıt hücrelerinde kullanılır", "Metalurjide indirgeyici"],
-            "CO2": ["İçeceklerde karbonatlayıcı", "Yangın söndürücülerde kullanılır"],
-            "CS2": ["Selüloz üretiminde kullanılır", "Böcek ilacı yapımında kullanılır"],
-            "CO": ["Metalurjide indirgeyici", "Kimyasal sentezlerde kullanılır"],
-            "CH3OH": ["Antifriz olarak kullanılır", "Biyodizel üretiminde kullanılır"],
-            "O2": ["Medikal kullanımda önemli", "Metalurjide kullanılır"],
-            "C3H6": ["Sentetik fiber üretiminde kullanılır", "Organik sentezde önemli"],
-            "H2O": ["Endüstriyel soğutucu", "Enerji üretiminde kullanılır"]
-        }
-        
-        for ozellik in ekstra_ozellikler[molekul.kimyasal_formul]:
-            yeni_ozellik = Ozellik(
-                tanim=ozellik,
-                molekul_id=molekul.id,
-                aktif=True,
-                silinebilir=True
-            )
-            db.session.add(yeni_ozellik)
 
     db.session.commit()
     print("Veritabanı başarıyla oluşturuldu ve veriler eklendi.")
