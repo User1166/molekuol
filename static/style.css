@@ -3,7 +3,7 @@ html {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.4s ease;
-    background-color: #F7FBFC; /* Açık tema için varsayılan arka plan */
+    background-color: #ffffff; /* Daha beyaz bir arka plan */
 }
 
 html.ready {
@@ -24,6 +24,8 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    background: #ffffff;
+    color: #333333;
 }
 
 /* Tam ekran arka plan katmanı */
@@ -34,7 +36,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #F7FBFC;
+    background-color: #ffffff;
     z-index: -1;
     transition: background-color 0.3s;
 }
@@ -45,26 +47,26 @@ body.dark-theme::before {
 
 /* Temel Renkler */
 :root {
-    --color-bg: #F7FBFC; /* Arka plan rengi */
-    --color-text: #1F2937; /* Ana metin rengi */
-    --color-text-secondary: #4B5563;
+    --color-bg: #ffffff; /* Daha beyaz bir arka plan */
+    --color-text: #333333; /* Daha koyu metin rengi */
+    --color-text-secondary: #666666;
 
     /* Vurgu Renkleri */
-    --color-primary: #769FCD; /* Birincil vurgu */
-    --color-primary-hover: #B9D7EA; /* Hover vurgu */
-    --color-secondary: #D6E6F2; /* İkincil vurgu */
+    --color-primary: #4a90e2; /* Daha canlı mavi */
+    --color-primary-hover: #357abd; /* Hover için koyu mavi */
+    --color-secondary: #f5f8fa; /* Daha açık gri */
 
     /* UI Öğeleri */
-    --color-card-bg: #FFFFFF;
-    --color-border: #D6E6F2; /* Kenarlık rengi */
-    --color-input-bg: #F7FBFC; /* Giriş alanı arka planı */
-    --color-input-border: #B9D7EA;
+    --color-card-bg: #ffffff;
+    --color-border: #e1e4e8; /* Daha belirgin kenarlıklar */
+    --color-input-bg: #ffffff;
+    --color-input-border: #d1d5da;
 
     /* Durum Renkleri */
-    --color-error: #EF4444;
-    --color-warning: #F59E0B;
-    --color-info: #769FCD; /* Bilgi rengi */
-    --color-success: #22C55E;
+    --color-error: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-success: #28a745;
 }
 
 /* Genel stiller */
@@ -72,8 +74,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #f7fbfc 0%, #f0f4f8 100%);
-    color: var(--color-text); /* Ana Metin */
+    background: #ffffff;
+    color: #333333; /* Ana Metin */
     transition: background-color 0.3s, color 0.3s; /* Tema geçişi için animasyon */
 }
 
@@ -126,9 +128,9 @@ body, input, button, select, textarea {
 /* Sidebar stilleri */
 .sidebar {
     width: 60px; /* Başlangıçta dar */
-    background-color: var(--color-card-bg); /* Sidebar arka plan rengi */
+    background-color: #f8f9fa; /* Sidebar arka plan rengi */
     color: var(--color-text);
-    border-right: 1px solid var(--color-border); /* Kenarlık */
+    border-right: 1px solid #e1e4e8; /* Kenarlık */
     backdrop-filter: blur(10px); /* Sidebar için bulanıklık efekti */
     position: fixed;
     height: 100%;
@@ -227,11 +229,11 @@ body.dark-theme .container h1 {
 }
 
 .element-card {
-    background-color: #fcfdff; /* Kart Arka Planı */
-    border: 1px solid #e3eaf3; /* Kenarlık */
+    background-color: #ffffff; /* Kart Arka Planı */
+    border: 1px solid #e1e4e8; /* Kenarlık */
     color: var(--color-text);
     border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(120, 160, 200, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     width: calc(33.333% - 10px);
     padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
@@ -258,7 +260,7 @@ body.dark-theme .element-card:hover {
     font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
     font-size: 18px;
     margin-bottom: 10px;
-    color: #1a3557;
+    color: #2c3e50;
     font-weight: 700;
     letter-spacing: 0.01em;
     transition: color 0.3s;
@@ -275,7 +277,7 @@ body.dark-theme .card-title {
 
 .card-text {
     font-size: 14px;
-    color: #5a6a7a;
+    color: #4a5568;
     transition: color 0.3s;
 }
 
@@ -291,6 +293,7 @@ body.dark-theme .card-text {
     margin: 0 auto 10px auto; /* Ortalamak için */
     overflow: hidden;
     border-radius: 10px;
+    background-color: #f8f9fa;
     transition: transform 0.3s ease;
 }
 
@@ -315,11 +318,11 @@ body.dark-theme .card-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fcfdff; /* Kart Arka Planı */
-    border: 1px solid #e3eaf3; /* Kenarlık */
+    background-color: #ffffff; /* Kart Arka Planı */
+    border: 1px solid #e1e4e8; /* Kenarlık */
     color: var(--color-text);
     border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(120, 160, 200, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     padding: 15px;
     text-align: center;
     width: 250px;
@@ -411,10 +414,10 @@ body.dark-theme button:hover {
 
 /* Molekül detay kartı */
 .molekul-detay-card {
-    background-color: #fcfdff;
-    border: 1px solid #e3eaf3;
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
     border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(120, 160, 200, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     padding: 20px;
     margin-top: 20px;
     text-align: center;
@@ -423,7 +426,7 @@ body.dark-theme button:hover {
 .molekul-title {
     font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
     font-size: 24px;
-    color: #1a3557;
+    color: #2c3e50;
     margin-bottom: 15px;
     font-weight: 700;
     letter-spacing: 0.01em;
@@ -435,7 +438,7 @@ body.dark-theme .molekul-title {
 
 .molekul-description {
     font-size: 16px;
-    color: #5a6a7a;
+    color: #4a5568;
     margin-bottom: 20px;
     line-height: 1.6;
 }
@@ -654,11 +657,11 @@ body.dark-theme .highlight-section h2 {
 }
 
 .highlight-card {
-    background-color: #fcfdff; /* Kart Arka Planı */
-    border: 1px solid #e3eaf3; /* Kenarlık */
+    background-color: #ffffff; /* Kart Arka Planı */
+    border: 1px solid #e1e4e8; /* Kenarlık */
     color: var(--color-text);
     border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(120, 160, 200, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     padding: 15px;
     text-align: center;
     width: 250px;
@@ -699,7 +702,7 @@ body.dark-theme .highlight-card img {
     font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
     font-size: 18px;
     margin-bottom: 10px;
-    color: #1a3557;
+    color: #2c3e50;
     font-weight: 700;
     letter-spacing: 0.01em;
 }
@@ -710,7 +713,7 @@ body.dark-theme .highlight-card h3 {
 
 .highlight-card p {
     font-size: 14px;
-    color: #5a6a7a;
+    color: #4a5568;
     margin-bottom: 15px;
 }
 
@@ -745,10 +748,10 @@ body.dark-theme .highlight-card .btn-primary:hover {
 
 /* Molekül Detay Sayfası */
 .molekul-detay-container {
-    background-color: #fcfdff;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 2px 12px rgba(120, 160, 200, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -765,7 +768,7 @@ body.dark-theme .molekul-detay-container {
 .molekul-title {
     font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
     font-size: 28px;
-    color: #1a3557;
+    color: #2c3e50;
     margin-bottom: 10px;
     font-weight: 700;
     letter-spacing: 0.01em;
@@ -777,7 +780,7 @@ body.dark-theme .molekul-title {
 
 .molekul-description {
     font-size: 16px;
-    color: #5a6a7a;
+    color: #4a5568;
     margin-bottom: 20px;
     line-height: 1.6;
     transition: color 0.3s;
@@ -950,6 +953,128 @@ body.dark-theme .btn-secondary:hover {
     border: 1px solid var(--color-border); /* Çerçeve ekle */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
     background-color: #f4f4f9; /* Arka plan rengi */
+}
+
+/* Molekül Özellikleri Akordiyon Stilleri */
+.molekul-ozellikler-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.ozellikler-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion-item {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-header {
+    padding: 1.25rem;
+    background: #f8f9fa;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.property-title {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.accordion-content {
+    background: #ffffff;
+    color: #444444;
+    padding: 1.25rem;
+    line-height: 1.8;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-content p {
+    margin: 0;
+    padding: 0.5rem 0;
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+.accordion-content strong, 
+.accordion-content em {
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+/* Dark Mode için Özelleştirilmiş Stiller */
+body.dark-theme .accordion-item {
+    background: #1a1a1a;
+    border-color: #333;
+}
+
+body.dark-theme .accordion-header {
+    background: #1a1a1a;
+    color: #e2e8f0;
+}
+
+body.dark-theme .property-title {
+    color: #e2e8f0;
+}
+
+body.dark-theme .accordion-content {
+    background: #1a1a1a;
+    color: #cbd5e0;
+}
+
+body.dark-theme .accordion-header:hover {
+    background: #2d2d2d;
+}
+
+body.dark-theme .accordion-item[data-category="Yapı"] .property-title {
+    color: #81ecec;
+}
+
+body.dark-theme .accordion-item[data-category="Fiziksel Özellikler"] .property-title {
+    color: #74b9ff;
+}
+
+body.dark-theme .accordion-item[data-category="Kimyasal Özellikler"] .property-title {
+    color: #a3e635;
+}
+
+body.dark-theme .accordion-item[data-category="Kimyasal Reaksiyonlar"] .property-title {
+    color: #ffd700;
+}
+
+body.dark-theme .accordion-item[data-category="Toksik Etkiler"] .property-title {
+    color: #ff7675;
+}
+
+body.dark-theme .accordion-item[data-category="Kullanım Alanları"] .property-title {
+    color: #fd79a8;
+}
+
+body.dark-theme .accordion-item:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .accordion-content a {
+    color: #60a5fa;
+}
+
+body.dark-theme .accordion-content a:hover {
+    color: #93c5fd;
+}
+
+/* Hover Efektleri */
+.accordion-header:hover {
+    background: #e9ecef;
 }
 
 /* Mobil cihazlar için optimizasyon */
