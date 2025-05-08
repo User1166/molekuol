@@ -1,0 +1,1159 @@
+/* Sayfa yüklenirken karanlık tema yanıp sönmesini önlemek için */
+html {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background-color: #ffffff; /* Daha beyaz bir arka plan */
+}
+
+html.ready {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Dark theme varsayılan renkleri */
+html.dark-theme {
+    background-color: #000000;
+    color: #c9d1d9;
+}
+
+/* Sidebar arkaplanı için z-index ayarı */
+body {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #333333;
+}
+
+/* Tam ekran arka plan katmanı */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: -1;
+    transition: background-color 0.3s;
+}
+
+body.dark-theme::before {
+    background-color: #000000;
+}
+
+/* Temel Renkler */
+:root {
+    --color-bg: #ffffff; /* Daha beyaz bir arka plan */
+    --color-text: #333333; /* Daha koyu metin rengi */
+    --color-text-secondary: #666666;
+
+    /* Vurgu Renkleri */
+    --color-primary: #4a90e2; /* Daha canlı mavi */
+    --color-primary-hover: #357abd; /* Hover için koyu mavi */
+    --color-secondary: #f5f8fa; /* Daha açık gri */
+
+    /* UI Öğeleri */
+    --color-card-bg: #ffffff;
+    --color-border: #e1e4e8; /* Daha belirgin kenarlıklar */
+    --color-input-bg: #ffffff;
+    --color-input-border: #d1d5da;
+
+    /* Durum Renkleri */
+    --color-error: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-success: #28a745;
+}
+
+/* Genel stiller */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #333333; /* Ana Metin */
+    transition: background-color 0.3s, color 0.3s; /* Tema geçişi için animasyon */
+}
+
+body.dark-theme {
+    background-color: #000000; /* Saf siyah arka plan */
+    color: #c9d1d9; /* Açık gri yazı rengi */
+}
+
+body.dark-theme a {
+    color: #58a6ff; /* Mavi ton bağlantı rengi */
+}
+
+body.dark-theme a:hover {
+    color: #1f6feb; /* Daha koyu mavi ton */
+}
+
+body.dark-theme .content,
+body.dark-theme .container {
+    background-color: #000000 !important;
+    color: #c9d1d9 !important;
+}
+
+body.dark-theme .content {
+    background-color: #000000; /* Saf siyah içerik arka plan */
+    color: #c9d1d9;
+}
+
+body.dark-theme .molekul-detay-card,
+body.dark-theme .highlight-card,
+body.dark-theme .element-card,
+body.dark-theme .molekul-card,
+body.dark-theme .molekul-detay-container {
+    background-color: #161b22 !important;
+    color: #c9d1d9 !important;
+    border-color: #30363d !important;
+}
+
+body.dark-theme .card-image-container,
+body.dark-theme .card-image-container img {
+    background-color: #23272e !important;
+}
+
+/* Modern ve okunaklı font ailesi */
+body, input, button, select, textarea {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+}
+
+/* Sidebar stilleri */
+.sidebar {
+    width: 60px; /* Başlangıçta dar */
+    background-color: #f8f9fa; /* Sidebar arka plan rengi */
+    color: var(--color-text);
+    border-right: 1px solid #e1e4e8; /* Kenarlık */
+    backdrop-filter: blur(10px); /* Sidebar için bulanıklık efekti */
+    position: fixed;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease, background-color 0.3s; /* Genişleme animasyonu */
+    overflow: hidden;
+}
+
+body.dark-theme .sidebar {
+    background-color: #000000;
+    color: #c9d1d9;
+}
+
+.sidebar:hover {
+    width: 250px; /* Genişletilmiş genişlik */
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, padding-left 0.3s, color 0.3s;
+    white-space: nowrap; /* Metni tek satırda tut */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.dark-theme .sidebar-links a {
+    color: #c9d1d9;
+}
+
+body.dark-theme .sidebar-links a:hover {
+    background-color: #238636; /* Yeşil ton hover rengi */
+}
+
+.sidebar-links a:hover {
+    background-color: var(--color-primary-hover); /* Hover arka plan */
+    color: var(--color-primary); /* Hover metin rengi */
+    padding-left: 15px; /* Hover sırasında içeriği kaydır */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+.sidebar-links a i {
+    margin-right: 10px; /* İkon ile metin arasındaki boşluk */
+    font-size: 18px;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Sidebar genişletildiğinde metin görünür */
+.sidebar:hover .sidebar-links a {
+    justify-content: flex-start;
+}
+
+/* İçerik stilleri */
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    background-color: var(--color-bg); /* İçerik arka plan rengi */
+    color: var(--color-text);
+    backdrop-filter: blur(5px); /* İçerik için bulanıklık efekti */
+}
+
+body.dark-theme .content {
+    background-color: #000000; /* Saf siyah içerik arka plan */
+    color: #c9d1d9;
+}
+
+.container h1, .container h2 {
+    color: #205781;
+    transition: color 0.3s;
+}
+
+body.dark-theme .container h1 {
+    color: #dcdde1; /* Karanlık tema başlık rengi */
+}
+
+/* Element listesi ve kart stilleri */
+.element-listesi {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.element-card {
+    background-color: #ffffff; /* Kart Arka Planı */
+    border: 1px solid #e1e4e8; /* Kenarlık */
+    color: var(--color-text);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: calc(33.333% - 10px);
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.element-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(118, 159, 205, 0.4); /* Mavi tonda hover gölgesi */
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+body.dark-theme .element-card {
+    background-color: #161b22; /* Siyah ton kart arka plan */
+    border: 1px solid #30363d; /* Gri ton kenarlık */
+    color: #c9d1d9;
+}
+
+body.dark-theme .element-card:hover {
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.3); /* Kırmızı hover gölgesini artır */
+}
+
+.card-title {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: color 0.3s;
+}
+
+.card-title:hover {
+    color: var(--color-primary); /* Daha parlak vurgu */
+    text-decoration: underline; /* Alt çizgi efekti */
+}
+
+body.dark-theme .card-title {
+    color: #dcdde1; /* Karanlık tema kart başlık rengi */
+}
+
+.card-text {
+    font-size: 14px;
+    color: #4a5568;
+    transition: color 0.3s;
+}
+
+body.dark-theme .card-text {
+    color: #b2bec3; /* Karanlık tema kart metin rengi */
+}
+
+/* Molekül kartı resim düzeni */
+.card-image-container {
+    position: relative;
+    width: 100px; /* Resim genişliği */
+    height: 100px; /* Resim yüksekliği */
+    margin: 0 auto 10px auto; /* Ortalamak için */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    transition: transform 0.3s ease;
+}
+
+.card-image-container:hover {
+    transform: scale(1.1); /* Hover sırasında büyütme efekti */
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi alanın içine sığdır */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image-container:hover img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hover sırasında gölge efekti */
+}
+
+/* Molekül kartı düzeni */
+.molekul-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff; /* Kart Arka Planı */
+    border: 1px solid #e1e4e8; /* Kenarlık */
+    color: var(--color-text);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.molekul-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(118, 159, 205, 0.4); /* Mavi tonda hover gölgesi */
+}
+
+body.dark-theme .molekul-card {
+    background-color: #161b22; /* Siyah ton kart arka plan */
+    border: 1px solid #30363d; /* Gri ton kenarlık */
+    color: #c9d1d9;
+}
+
+body.dark-theme .molekul-card:hover {
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.3); /* Kırmızı hover gölgesini artır */
+}
+
+/* Molekül listesi grid düzeni */
+.molekul-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Kart genişliği 250px, sayfaya sığdığı kadar yan yana */
+    gap: 20px; /* Kartlar arasındaki boşluk */
+    margin-top: 20px;
+}
+
+/* Düğme stilleri */
+button {
+    background-color: var(--color-primary); /* Birincil Vurgu */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 8px rgba(120, 160, 200, 0.08);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+button:hover {
+    background-color: var(--color-primary-hover); /* Hover arka plan */
+    color: var(--color-primary); /* Hover metin rengi */
+    transform: scale(1.05); /* Hafif büyütme efekti */
+}
+
+body.dark-theme button {
+    background-color: #238636; /* Yeşil ton düğme rengi */
+    color: #ffffff;
+}
+
+body.dark-theme button:hover {
+    background-color: #1f6feb; /* Mavi ton hover rengi */
+}
+
+/* Gizli sınıf */
+.hidden {
+    display: none;
+}
+
+/* Kategori butonları */
+.kategori-btn {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.kategori-btn:hover {
+    background-color: var(--color-primary-hover); /* Hover arka plan */
+    transform: scale(1.1); /* Hafif büyütme efekti */
+    color: var(--color-primary); /* Hover metin rengi */
+}
+
+.kategori-btn.active {
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+/* Molekül detay kartı */
+.molekul-detay-card {
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.molekul-title {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+body.dark-theme .molekul-title {
+    color: #dcdde1; /* Karanlık tema başlık rengi */
+}
+
+.molekul-description {
+    font-size: 16px;
+    color: #4a5568;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+body.dark-theme .molekul-description {
+    color: #b2bec3; /* Karanlık tema açıklama rengi */
+}
+
+.molekul-ozellikler {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.molekul-ozellikler li {
+    background-color: #f4f4f9;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #34495e;
+    text-align: left;
+}
+
+/* Molekül bağlantıları */
+.molekul-link {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.molekul-link:hover {
+    color: #205781;
+    text-decoration: underline; /* Alt çizgi efekti */
+}
+
+/* Detaylar düğmesi */
+.detay-btn {
+    background-color: #2ecc71;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(120, 160, 200, 0.08);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.detay-btn:hover {
+    background-color: var(--color-secondary); /* Hover arka plan */
+    transform: scale(1.1); /* Hafif büyütme efekti */
+    color: var(--color-primary); /* Hover metin rengi */
+}
+
+/* Küçük resimler */
+.small-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    object-fit: contain; /* Orijinal oranları korur */
+    background-color: #f4f4f9; /* Arka plan rengi */
+    transition: background-color 0.3s;
+}
+
+body.dark-theme .small-image {
+    background-color: #2f3640; /* Karanlık tema resim arka plan rengi */
+}
+
+/* Büyük resimler */
+.large-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    margin: 10px 0;
+    object-fit: contain; /* Orijinal oranları korur */
+    background-color: #f4f4f9; /* Arka plan rengi */
+    transition: background-color 0.3s;
+}
+
+body.dark-theme .large-image {
+    background-color: #2f3640; /* Karanlık tema resim arka plan rengi */
+}
+
+/* Molekül detay sayfası resim düzeni */
+.molekul-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center; /* Resimleri dikey olarak hizalar */
+}
+
+/* Arama Kutusu */
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 8px;
+    background-color: var(--color-input-bg); /* Giriş Alanı Arka Planı */
+    border: 1px solid var(--color-input-border); /* Giriş Kenarlığı */
+    border-radius: 5px;
+    margin-right: 5px;
+    color: var(--color-text);
+}
+
+.search-box input::placeholder {
+    color: #8ca0b3;
+    opacity: 1;
+    font-size: 15px;
+}
+
+.search-box input:focus {
+    border-color: var(--color-primary); /* Birincil Vurgu */
+    outline: none;
+}
+
+.search-box button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #2980b9;
+}
+
+/* Tema Değiştirici */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-switcher button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-switcher button:hover {
+    background-color: #2980b9;
+}
+
+body.dark-theme .theme-switcher button {
+    background-color: #27ae60; /* Karanlık tema düğme rengi */
+    color: #ecf0f1;
+}
+
+/* Tema Değiştir Butonu */
+.theme-switcher-btn {
+    background-color: var(--color-primary); /* Birincil Vurgu */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 8px rgba(120, 160, 200, 0.08);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.theme-switcher-btn:hover {
+    background-color: var(--color-primary-hover); /* Hover Etkisi */
+}
+
+body.dark-theme .theme-switcher-btn {
+    background-color: #238636; /* Yeşil ton */
+    color: #ffffff;
+}
+
+body.dark-theme .theme-switcher-btn:hover {
+    background-color: #d73a49; /* Kırmızı ton hover rengi */
+}
+
+/* Ana Sayfa */
+.highlight-section {
+    margin-top: 30px;
+}
+
+.highlight-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    transition: color 0.3s;
+}
+
+body.dark-theme .highlight-section h2 {
+    color: #dcdde1;
+}
+
+.highlight-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.highlight-card {
+    background-color: #ffffff; /* Kart Arka Planı */
+    border: 1px solid #e1e4e8; /* Kenarlık */
+    color: var(--color-text);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.highlight-card:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: 0 8px 30px rgba(118, 159, 205, 0.4); /* Mavi tonda hover gölgesi */
+    color: var(--color-primary);
+}
+
+body.dark-theme .highlight-card {
+    background-color: #161b22; /* Siyah ton kart arka plan */
+    border: 1px solid #30363d; /* Gri ton kenarlık */
+    color: #c9d1d9;
+}
+
+body.dark-theme .highlight-card:hover {
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.3); /* Kırmızı hover gölgesini artır */
+}
+
+.highlight-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    background-color: #f4f4f9;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+body.dark-theme .highlight-card img {
+    background-color: #2f3640;
+}
+
+.highlight-card h3 {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+body.dark-theme .highlight-card h3 {
+    color: #dcdde1;
+}
+
+.highlight-card p {
+    font-size: 14px;
+    color: #4a5568;
+    margin-bottom: 15px;
+}
+
+body.dark-theme .highlight-card p {
+    color: #b2bec3;
+}
+
+.highlight-card .btn-primary {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 8px rgba(120, 160, 200, 0.08);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.highlight-card .btn-primary:hover {
+    background-color: #2980b9;
+}
+
+body.dark-theme .highlight-card .btn-primary {
+    background-color: #2980b9;
+}
+
+body.dark-theme .highlight-card .btn-primary:hover {
+    background-color: #1f6fa5;
+}
+
+/* Molekül Detay Sayfası */
+.molekul-detay-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme .molekul-detay-container {
+    background-color: #000000;
+    color: #dcdde1;
+}
+
+.molekul-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.molekul-title {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+body.dark-theme .molekul-title {
+    color: #dcdde1; /* Karanlık tema başlık rengi */
+}
+
+.molekul-description {
+    font-size: 16px;
+    color: #4a5568;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    transition: color 0.3s;
+}
+
+body.dark-theme .molekul-description {
+    color: #b2bec3; /* Karanlık tema açıklama rengi */
+}
+
+.molekul-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.large-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: contain;
+    background-color: #f4f4f9;
+    transition: background-color 0.3s;
+}
+
+body.dark-theme .large-image {
+    background-color: #2f3640; /* Karanlık tema resim arka plan rengi */
+}
+
+/* Özellikler Başlığı */
+.molekul-detay-container h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+body.dark-theme .molekul-detay-container h2 {
+    color: #dcdde1; /* Karanlık tema başlık rengi */
+}
+
+/* Özellikler Tablosu */
+.molekul-ozellikler-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--color-card-bg);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme .molekul-ozellikler-table {
+    background-color: #34495e; /* Karanlık tema tablo arka plan rengi */
+    color: #dcdde1; /* Karanlık tema tablo yazı rengi */
+}
+
+.molekul-ozellikler-table th,
+.molekul-ozellikler-table td {
+    border: 1px solid var(--color-border);
+    padding: 10px;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-theme .molekul-ozellikler-table th,
+body.dark-theme .molekul-ozellikler-table td {
+    border: 1px solid #444; /* Karanlık tema tablo kenarlık rengi */
+}
+
+.molekul-ozellikler-table th {
+    background-color: var(--color-primary); /* Birincil Vurgu */
+    color: #FFFFFF;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.molekul-ozellikler-table td {
+    background-color: var(--color-card-bg); /* Tablo hücre arka plan rengi */
+    color: var(--color-text);
+}
+
+body.dark-theme .molekul-ozellikler-table td {
+    background-color: #161b22; /* Siyah ton hücre arka plan */
+    color: #c9d1d9;
+}
+
+.molekul-ozellikler-table tr:nth-child(even) {
+    background-color: #f5f8fa; /* Çift satır arka plan rengi */
+}
+
+body.dark-theme .molekul-ozellikler-table tr:nth-child(even) {
+    background-color: #21262d; /* Daha açık siyah ton */
+}
+
+.molekul-ozellikler-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+body.dark-theme .molekul-ozellikler-table tr:hover {
+    background-color: #4b5a6a; /* Karanlık tema hover arka plan rengi */
+}
+
+.btn-secondary {
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 8px rgba(120, 160, 200, 0.08);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.btn-secondary:hover {
+    background-color: #27ae60;
+}
+
+body.dark-theme .btn-secondary {
+    background-color: #27ae60;
+}
+
+body.dark-theme .btn-secondary:hover {
+    background-color: #1f8a4d;
+}
+
+/* Durum Renkleri */
+.alert-error {
+    background-color: var(--color-error); /* Hata */
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.alert-warning {
+    background-color: var(--color-warning); /* Uyarı */
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.alert-info {
+    background-color: var(--color-info); /* Bilgi */
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: var(--color-success); /* Başarı */
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 3D Görünüm Alanı */
+#3d-viewer-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Taşmayı engelle */
+}
+
+#3d-viewer {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-border); /* Çerçeve ekle */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    background-color: #f4f4f9; /* Arka plan rengi */
+}
+
+/* Molekül Özellikleri Akordiyon Stilleri */
+.molekul-ozellikler-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.ozellikler-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion-item {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-header {
+    padding: 1.25rem;
+    background: #f8f9fa;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.property-title {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.accordion-content {
+    background: #ffffff;
+    color: #444444;
+    padding: 1.25rem;
+    line-height: 1.8;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-content p {
+    margin: 0;
+    padding: 0.5rem 0;
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+.accordion-content strong, 
+.accordion-content em {
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+/* Dark Mode için Özelleştirilmiş Stiller */
+body.dark-theme .accordion-item {
+    background: #1a1a1a;
+    border-color: #333;
+}
+
+body.dark-theme .accordion-header {
+    background: #1a1a1a;
+    color: #e2e8f0;
+}
+
+body.dark-theme .property-title {
+    color: #e2e8f0;
+}
+
+body.dark-theme .accordion-content {
+    background: #1a1a1a;
+    color: #cbd5e0;
+}
+
+body.dark-theme .accordion-header:hover {
+    background: #2d2d2d;
+}
+
+body.dark-theme .accordion-item[data-category="Yapı"] .property-title {
+    color: #81ecec;
+}
+
+body.dark-theme .accordion-item[data-category="Fiziksel Özellikler"] .property-title {
+    color: #74b9ff;
+}
+
+body.dark-theme .accordion-item[data-category="Kimyasal Özellikler"] .property-title {
+    color: #a3e635;
+}
+
+body.dark-theme .accordion-item[data-category="Kimyasal Reaksiyonlar"] .property-title {
+    color: #ffd700;
+}
+
+body.dark-theme .accordion-item[data-category="Toksik Etkiler"] .property-title {
+    color: #ff7675;
+}
+
+body.dark-theme .accordion-item[data-category="Kullanım Alanları"] .property-title {
+    color: #fd79a8;
+}
+
+body.dark-theme .accordion-item:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .accordion-content a {
+    color: #60a5fa;
+}
+
+body.dark-theme .accordion-content a:hover {
+    color: #93c5fd;
+}
+
+/* Hover Efektleri */
+.accordion-header:hover {
+    background: #e9ecef;
+}
+
+/* Mobil cihazlar için optimizasyon */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .highlight-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .highlight-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .highlight-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .molekul-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .molekul-images {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .large-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .molekul-ozellikler-table {
+        font-size: 12px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .sidebar-links a {
+        font-size: 14px;
+    }
+
+    .theme-switcher {
+        position: static;
+        margin-top: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .element-card, .highlight-card, .molekul-card {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+}
