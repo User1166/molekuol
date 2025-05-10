@@ -5,7 +5,6 @@
         if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark-theme');
         }
-        // Sayfa yüklendikten sonra görünür yap
         document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.classList.add('ready');
         });
@@ -15,32 +14,37 @@
 })();
 
 function searchMolecule() {
-    const query = document.getElementById('search-input').value.toLowerCase().trim();
+    const input = document.getElementById('search-input');
+    if (!input) return;
+    const query = input.value.toLowerCase().trim();
     if (query) {
-        // Arama sorgusunu URL parametresi olarak "Tüm Moleküller" sayfasına yönlendir
         window.location.href = `/tum_molekuller?search=${encodeURIComponent(query)}`;
     }
 }
 
-document.getElementById('search-input').addEventListener('keypress', function (event) {
-    if (event.key === 'Enter') {
-        searchMolecule();
-    }
-});
+const searchInput = document.getElementById('search-input');
+if (searchInput) {
+    searchInput.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') searchMolecule();
+    });
 
-document.getElementById('search-input').addEventListener('input', function () {
-    const query = this.value.toLowerCase().trim();
-    if (query.length > 1) {
-        fetch(`/api/arama_onerileri?q=${encodeURIComponent(query)}`)
-            .then(response => response.json())
-            .then(data => {
-                const suggestions = data.map(item => `<li>${item}</li>`).join('');
-                document.getElementById('search-suggestions').innerHTML = `<ul>${suggestions}</ul>`;
-            });
-    } else {
-        document.getElementById('search-suggestions').innerHTML = '';
-    }
-});
+    searchInput.addEventListener('input', function () {
+        const query = this.value.toLowerCase().trim();
+        const suggestionsBox = document.getElementById('search-suggestions');
+        if (!suggestionsBox) return;
+        if (query.length > 1) {
+            fetch(`/api/arama_onerileri?q=${encodeURIComponent(query)}`)
+                .then(r => r.json())
+                .then(data => {
+                    suggestionsBox.innerHTML = data.length
+                        ? `<ul>${data.map(item => `<li>${item}</li>`).join('')}</ul>`
+                        : '';
+                });
+        } else {
+            suggestionsBox.innerHTML = '';
+        }
+    });
+}
 
 function toggleTheme() {
     document.body.classList.toggle('dark-theme');

@@ -43,6 +43,9 @@
                 </div>
             </div>
         </div>
+        <div id="model-error-message" style="display:none; color:red; text-align:center; margin-top:20px; font-weight:bold;">
+            3D model yüklenemedi. Dosya bulunamıyor veya bozuk olabilir.
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/controls/OrbitControls.js"></script>
@@ -102,6 +105,8 @@
             undefined,
             function (error) {
                 console.error('3D model yüklenirken bir hata oluştu:', error);
+                // Kullanıcıya ekranda hata mesajı göster
+                document.getElementById('model-error-message').style.display = 'block';
             }
         );
 

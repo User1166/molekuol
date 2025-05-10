@@ -179,7 +179,7 @@ with app.app_context():
             "aciklama": "Asetilen, iki karbon atomu arasında üçlü bağ bulunan en basit alkin bileşiğidir. Metal kesme ve kaynak işlemlerinde yaygın olarak kullanılır.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Asetilen.jpeg",
-            "dosya_3d": "c2h2.obj",
+            "dosya_3d": "asetilen.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("C2H2", {})
         },
@@ -209,7 +209,7 @@ with app.app_context():
             "aciklama": "Karbon monoksit, karbon ve oksijen atomları arasında üçlü bağ içeren doğrusal bir moleküldür.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/karbon monoksit.jpeg",
-            "dosya_3d": "co.obj",
+            "dosya_3d": "karbon monoksit.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CO", {})
         },
@@ -219,7 +219,7 @@ with app.app_context():
             "aciklama": "Formaldehit, bir karbon, iki hidrojen ve bir oksijen atomundan oluşan aldehittir.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Formaldehit.jpeg",
-            "dosya_3d": "ch2o.obj",
+            "dosya_3d": "formaldehit.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CH2O", {})
         },
@@ -229,7 +229,7 @@ with app.app_context():
             "aciklama": "Karbon disülfür, karbon ve kükürt atomları arasında çift bağ içeren doğrusal bir moleküldür.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Karbon Disülfür.jpeg",
-            "dosya_3d": "cs2.obj",
+            "dosya_3d": "karbon disülfür.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CS2", {})
         },
@@ -239,7 +239,7 @@ with app.app_context():
             "aciklama": "Metanol, bir karbon, üç hidrojen ve bir hidroksil grubu içeren basit bir alkoldür.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Metanol.jpeg",
-            "dosya_3d": "ch3oh.obj",
+            "dosya_3d": "metanol.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CH3OH", {})
         },
@@ -249,7 +249,7 @@ with app.app_context():
             "aciklama": "Propilen, üç karbonlu ve bir çift bağ içeren doymamış bir hidrokarbondur.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Propilen.jpeg",
-            "dosya_3d": "c3h6.obj",
+            "dosya_3d": "propilen.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("C3H6", {})
         },
@@ -259,7 +259,7 @@ with app.app_context():
             "aciklama": "Etilen, iki karbon atomu arasında bir çift bağ içeren basit bir alken bileşiğidir.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Etilen.jpeg",
-            "dosya_3d": "c2h4.obj",
+            "dosya_3d": "etilen.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("C2H4", {})
         },
@@ -269,7 +269,7 @@ with app.app_context():
             "aciklama": "Su, bir oksijen ve iki hidrojen atomundan oluşan yaşam için temel bir moleküldür.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Su.jpeg",
-            "dosya_3d": "h2o.obj",
+            "dosya_3d": "H2O.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("H2O", {})
         },
@@ -279,7 +279,7 @@ with app.app_context():
             "aciklama": "Fosfin, bir fosfor ve üç hidrojen atomundan oluşan toksik bir gazdır.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Fosfin.jpeg",
-            "dosya_3d": "ph3.obj",
+            "dosya_3d": "fosfin.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("PH3", {})
         },
@@ -289,7 +289,7 @@ with app.app_context():
             "aciklama": "Metan, bir karbon ve dört hidrojen atomundan oluşan en basit alkan bileşiğidir. Doğal gazın ana bileşenidir.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/CH4.jpeg.jpg",
-            "dosya_3d": "ch4.obj",
+            "dosya_3d": "CH4.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CH4", {})
         },
@@ -299,7 +299,7 @@ with app.app_context():
             "aciklama": "Benzen, altı karbon atomunun halka şeklinde dizildiği ve her karbona bir hidrojen bağlandığı aromatik bir hidrokarbondur.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Benzen.jpeg",
-            "dosya_3d": "c6h6.obj",
+            "dosya_3d": "benzen.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("C6H6", {})
         }
