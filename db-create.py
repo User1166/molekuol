@@ -11,7 +11,7 @@ with app.app_context():
             "Yapı": "Her amonyak molekülü üç hidrojen atomu ve bir azot atomu içerir. Formülü (NH3) olan amonyak molekülü piramidal bir yapıya sahiptir.",
             "Fiziksel Özellikler": "Renk: Renksiz, Koku: Keskin ve rahatsız edici bir kokuya sahiptir. Kaynama Noktası: -33.34 °C (sıvı amonyak), Erime Noktası: -77.73 °C, Yoğunluk: Oda sıcaklığında gaz halinde hafif bir gazdır (hava yoğunluğunun yaklaşık %60'ı).",
             "Kimyasal Özellikler": "Amonyak, bazik özellikler gösterir. Su ile tepkimeye girdiğinde amonyum iyonu (NH₄⁺) oluşturur. Amonyak, asitlerle tepkimeye girerek tuzlar oluşturur. Amonyak, nitrat ve nitrit gibi bileşiklerin oluşumunda önemli bir rol oynar. Polar bir molekül olup, su gibi polar çözücülerde iyi çözünür.",
-            "Kimyasal Tepkimeler": "Asit-Baz Tepkimeleri: Amonyak, asitlerle tepkimeye girerek amonyum tuzları oluşturur. Oksidasyon: Amonyak, yüksek sıcaklıklarda oksijenle tepkimeye girerek azot oksitleri (NO, NO₂) oluşturabilir. Haber Süreci: Amonyak, endüstriyel olarak azot ve hidrojen gazlarının tepkimesiyle üretilir.",
+            "Kimyasal Reaksiyonlar": "Asit-Baz Tepkimeleri: Amonyak, asitlerle tepkimeye girerek amonyum tuzları oluşturur. Oksidasyon: Amonyak, yüksek sıcaklıklarda oksijenle tepkimeye girerek azot oksitleri (NO, NO₂) oluşturabilir. Haber Süreci: Amonyak, endüstriyel olarak azot ve hidrojen gazlarının tepkimesiyle üretilir.",
             "Toksik Etkiler": "Amonyak, yüksek konsantrasyonlarda toksik olabilir. Solunduğunda solunum yollarını tahriş edebilir ve gözlerde yanma hissine yol açabilir. Amonyak buharları, ciltle temas ettiğinde de tahriş edicidir.",
             "Kullanım Alanları": "İlaç sentezi (Aminler, amin türevleri), Boyar madde üretimi (Azot bileşikleri), Plastik üretimi (Poliamidler, örneğin naylon), Zirai ilaçlar (Amonyak türevi pestisitler)."
         },
@@ -19,7 +19,7 @@ with app.app_context():
             "Yapı": "Diatomik molekül olup, iki hidrojen atomunun kovalent bağ ile birleşmesiyle oluşur. Bağ uzunluğu: 74 pm. Bağ açısı: 180° (doğrusal yapı).",
             "Fiziksel Özellikler": "Molekül Ağırlığı: 2.016 g/mol. Gaz halinde (oda sıcaklığında). Renksiz, kokusuz. Kaynama Noktası: –252.87 °C. Erime Noktası: –259.16 °C. Yoğunluk: 0.0899 g/L. Suda çözünürlük düşük.",
             "Kimyasal Özellikler": "Oldukça reaktif bir elementtir ve birçok bileşik oluşturabilir. Oksijenle birleşerek su (H₂O) oluşturur. İndirgen ajan olarak çalışır. Elektron verebilir. Asidik özellikler göstermez, daha çok bazik özellikler gösterir.",
-            "Kimyasal Reaksiyonları": "Hidrojenin oksijenle reaksiyonu (yanma), Hidrojenin metallerle reaksiyonu (hidrojenasyon), Hidrojenin halojenlerle reaksiyonu, Hidrojenin azotla reaksiyonu, Hidrojenin karbonla reaksiyonu.",
+            "Kimyasal Reaksiyonlar": "Hidrojenin oksijenle reaksiyonu (yanma), Hidrojenin metallerle reaksiyonu (hidrojenasyon), Hidrojenin halojenlerle reaksiyonu, Hidrojenin azotla reaksiyonu, Hidrojenin karbonla reaksiyonu.",
             "Toksik Etkiler": "Yanıcı ve patlayıcıdır (havada %4–75 konsantrasyon). Yüksek konsantrasyonlarda boğulma riski. Yanıklar: Yüksek sıcaklıklarda ciddi yanıklar.",
             "Kullanım Alanları": "Kimya sanayi (Amonyak üretimi, hidrojenasyon), Enerji üretimi (yakıt hücreleri), Petrol sanayi, Metal işleme, Gıda endüstrisi, Elektrik üretimi, Laboratuvarlar, Uzay sanayi (roket yakıtı)."
         },
@@ -40,19 +40,20 @@ with app.app_context():
             "Kullanım Alanları": "Kaynak gazı olarak kullanılır. Metal kesme ve kaynak işlemlerinde yaygın olarak tercih edilir. Organik sentezlerde başlangıç maddesi. Aydınlatma sistemlerinde (tarihi kullanım)."
         },
         "CO2": {
-            "Yapı": "Doğrusal yapı: O=C=O, İki çift bağ (C=O) içerir, Kutuplanmamış (apolar) bir moleküldür.",
+            "Yapı": "Doğrusal O=C=O, İki çift bağ (C=O) içerir, Kutuplanmamış (apolar) bir moleküldür.",
             "Fiziksel Özellikler": "Renk ve Koku: Renksiz ve kokusuz bir gazdır. Erime ve Kaynama Noktası: CO₂, gaz halinde oda sıcaklığında bulunur, ancak -78.5°C'de katı (süblimleşir) hale geçer ve -56.6°C'de sıvı hale gelir. Yoğunluk: Karbondioksit, havadan daha yoğun bir gazdır. Çözünürlük: CO₂, su içinde çözünür.",
-            "Kimyasal Özellikler": "Asidik Özellik: CO₂, su ile birleştiğinde karbonik asit (H₂CO₃) oluşturur. Elektron Çekici Yapı: Karbondioksit moleküler yapısında karbon atomu yüksek elektronegatifliğe sahiptir.",
+            "Kimyasal Özellikler": "Asidik Özellik: CO₂, su ile birleştiğinde karbonik asit (H₂CO₃) oluşturur. Elektron Çekici yapısı Karbondioksit moleküler yapısında karbon atomu yüksek elektronegatifliğe sahiptir.",
             "Kimyasal Reaksiyonlar": "Karbonil Grubu, Karboksilasyon Reaksiyonları (Grignard, Aldol Yoğunlaşması ve Diğer Polimerizasyon Reaksiyonları), Fotosentez reaksiyonları.",
             "Toksik Etkiler": "CO₂, konsantrasyonu arttığında solunum için tehlikeli olabilir. Yüksek konsantrasyonlarda (yaklaşık %5 ve üzerinde) boğulma riski doğurabilir.",
             "Kullanım Alanları": "Kimyasal Sentezler, Organik Sentez Reaksiyonları, Karboksilat İyonları ve Esterler üretimi, Süperkritik CO₂ uygulamaları."
         },
         "N2": {
-            "Yapı": "İki azot atomu arasında üçlü bağ bulunan diatomik bir molekül. Bağ uzunluğu 1.0976 Å.",
-            "Fiziksel Özellikler": "Renksiz, kokusuz ve tatsız bir gaz. Kaynama noktası: -195.8°C. Erime noktası: -210.0°C. Havadan biraz daha hafif.",
-            "Kimyasal Özellikler": "Oldukça kararlı bir yapıya sahip. Üçlü bağ nedeniyle reaktifliği düşük. Normal koşullarda inert.",
-            "Toksik Etkiler": "Doğrudan toksik değil fakat yüksek konsantrasyonlarda oksijen yetersizliğine yol açabilir.",
-            "Kullanım Alanları": "Amonyak üretimi, inert atmosfer oluşturma, soğutma sistemleri, gıda paketleme."
+            "Yapı": "İki azot atomu arasında üçlü kovalent bağ bulunan diatomik bir molekül. Bağ uzunluğu 1.0976 Å. Doğada genellikle iki atomlu molekül halinde (N₂) bulunur. N₂ molekülü üçlü kovalent bağ içerir ve bu bağ çok güçlüdür.",
+            "Fiziksel Özellikler": "Fiziksel hali: Gaz (oda sıcaklığında), Renk, koku, tat: Renksiz, kokusuz, tatsız, Erime noktası: -210°C, Kaynama noktası: -196°C, Yoğunluk (0°C, 1 atm'de): ~1.25 g/L, Suda az çözünür, Elektrik iletmez.",
+            "Kimyasal Özellikler": "Kararlılık: N₂ molekülü çok kararlı ve inerttir (üçlü bağdan dolayı), Reaktivite: Normal koşullarda az reaktif, yüksek sıcaklık veya katalizörle reaktif hale gelir, Elektronegatiflik: 3.04 (yüksek), Oksitlenme basamakları: -3 (amonyak), +1, +2, +3, +4, +5 (nitrik asit gibi).",
+            "Kimyasal Reaksiyonlar": "Haber Süreci (Amonyak sentezi), Yanma (oksijenle reaksiyon), Asit oluşumu, Metal azotürlerin oluşumu.",
+            "Toksik Etkiler": "N₂ gazı: Zehirli değil fakat oksijenin yerini alırsa boğulmaya neden olabilir, Yüksek konsantrasyonda: Bilinç kaybı, baş dönmesi, boğulma riski, Azot oksitleri (NO, NO₂): Solunum yollarını tahriş eder, toksiktir, Sıvı azot: Ciltle temas halinde donmaya neden olabilir (soğuk yanığı).",
+            "Kullanım Alanları": "Endüstride, Laboratuvarlarda, Elektronik sanayisinde, Gıda sanayisinde, Tıpta kullanım alanları mevcuttur."
         },
         "C6H6": {
             "Yapı": "Aromatik halka yapısı (6 karbon atomu), Düzlemsel geometri, Rezonans yapısı mevcut, Her karbon atomu bir hidrojen atomuna bağlı.",
@@ -75,28 +76,37 @@ with app.app_context():
             "Fiziksel Özellikler": "Oda sıcaklığında gaz hâlindedir (kaynama noktası ≈ -19°C), Suda çok iyi çözünür → %37'lik sulu çözeltisine formalin denir, Keskin, tahriş edici kokuludur.",
             "Kimyasal Özellikler": "Formaldehit karbonil grubu sayesinde reaktif bir bileşiktir, Aldehit özellikleri gösterir, Nükleofillerle reaksiyona girer, Polimerleşmeye yatkındır, İndirgenebilir, İndirgeme testlerine pozitif yanıt verir.",
             "Toksik Etkiler": "Zehirli ve kanserojendir, Solunduğunda, yutulduğunda veya cilde temas ettiğinde tehlikelidir, Kanserojen olarak sınıflandırılmıştır.",
-            "Kullanım Alanları": "Reçine üretimi (ürea-formaldehit, fenol-formaldehit), Tekstil ve kağıt sanayiinde sertleştirici, Dezenfektan (formalin formunda), Organik sentezlerde ara madde."
+            "Kullanım Alanları": "Reçine üretimi (ürea-formaldehit, fenol-formaldehit), Tekstil ve kağıt sanayiinde sertleştirici, Dezenfektan (formalin formunda), Organik sentezlerde ara madde.",
+            "Kimyasal Reaksiyonlar": """a) İndirgenme:
+            b) Oksidasyon:
+            c) Asetal Oluşumu (Alkollerle):
+            d) Polimerleşme (Kondensasyon):
+            e) Aminlerle reaksiyon (Schiff bazı oluşumu):"""
         },
         "CS2": {
             "Yapı": "Doğrusal molekül: S=C=S, S=C çift bağları içerir (rezonans yapısı), CO₂'ye benzer yapı.",
             "Fiziksel Özellikler": "Molekül Ağırlığı: 76.14 g/mol, Sıvı (oda sıcaklığında), Renksiz, hoş olmayan keskin koku, Erime Noktası: -111.6°C, Kaynama Noktası: 46.3°C, Yoğunluk: 1.26 g/cm³.",
             "Kimyasal Özellikler": "Yanıcı, elektrofilik, çift bağlara sahip, polimerleşmeye yatkın değil, bazı metallerle kompleks yapabilir.",
             "Toksik Etkiler": "Soluma: Baş dönmesi, baş ağrısı, bilinç kaybı. Uzun süreli maruziyet: Sinir sistemi bozuklukları. Yüksek dozda: Ölüm riski.",
-            "Kullanım Alanları": "Viskon üretimi, Lastik sanayi, Pestisit üretimi, Organik çözücü, Kimya araştırmaları."
+            "Kullanım Alanları": "Viskon üretimi, Lastik sanayi, Pestisit üretimi, Organik çözücü, Kimya araştırmaları.",
+            "Kimyasal Reaksiyonlar": "Yanma:---Hidrojen sülfür ile tepkime (tiyokarbamidler oluşabilir)-------:Alkollerle ve aminlerle tepkimeleri:Tiyokarbonatlar ve ditiyokarbamatlar elde edilir.---Metallerle kompleksleşme:Özellikle bazik metallerle koordinasyon bileşikleri oluşturur."
         },
-        "CH3OH": {
-            "Yapı": "Moleküler formülü: CH₄O ya da CH₃OH, Hidroksil grubu (-OH) içerir.",
-            "Fiziksel Özellikler": "Berrak, renksiz, uçucu sıvı, Kaynama noktası: ~64.7°C, Erime noktası: -97.6°C, Su ile tamamen karışabilir.",
-            "Kimyasal Özellikler": "Reaktif alkol, Zayıf asit ve baz özellikleri gösterir, Alkoller sınıfına ait.",
-            "Toksik Etkiler": "Gözlerde yanma ve görme kaybı, Sinir sistemi hasarı, Metabolik asidoz, Karaciğer ve böbrek hasarı, Ölüm riski.",
-            "Kullanım Alanları": "Çözücü, Yakıt, Kimyasal sentez, Metilasyon ajanı, Formaldehit ve plastik üretimi."
+"CH3OH": {
+    "Yapı": "Moleküler formülü: CH₄O ya da CH₃OH, Hidroksil grubu (-OH) içerir.",
+    "Fiziksel Özellikler": "Berrak, renksiz, uçucu sıvı, Kaynama noktası: ~64.7°C, Erime noktası: -97.6°C, Su ile tamamen karışabilir.",
+    "Kimyasal Özellikler": "Reaktif alkol, Zayıf asit ve baz özellikleri gösterir, Alkoller sınıfına ait.",
+    "Toksik Etkiler": "Gözlerde yanma ve görme kaybı, Sinir sistemi hasarı, Metabolik asidoz, Karaciğer ve böbrek hasarı, Ölüm riski.",
+    "Kullanım Alanları": "Çözücü, Yakıt, Kimyasal sentez, Metilasyon ajanı, Formaldehit ve plastik üretimi.",
+    "Kimyasal Reaksiyonlar": "Yanma Tepkimesi: Metanol, oksijenle tepkimeye girerek karbondioksit ve su oluşturur. Bu tepkime enerji açığa çıkar. Aldehit Oluşumu: Metanol, oksidasyon tepkimeleri ile formaldehit (metanal) oluşturabilir. Estere Dönüşüm: Metanol, asitlerle tepkimeye girerek esterler oluşturabilir."
         },
         "C3H6": {
             "Yapı": "Kimyasal formülü: C₃H₆, üç karbonlu ve bir çift bağ içeren doymamış hidrokarbon, CH₂=CH-CH₃ yapısı.",
             "Fiziksel Özellikler": "Gaz halinde, Renksiz, Kaynama noktası: -47.6°C, Erime noktası: -185.2°C, Suda az çözünür.",
             "Kimyasal Özellikler": "Reaktif çift bağ, Polimerleşme yatkınlığı, Hidratasyon ve halojenleme reaksiyonları verir.",
             "Toksik Etkiler": "Solunum sistemi irritasyonu, Merkezi sinir sistemi etkileri, Göz ve cilt tahrişi.",
-            "Kullanım Alanları": "Polipropilen üretimi, Propilen oksit üretimi, Yakıt katkısı, Sentetik fiber üretimi."
+            "Kullanım Alanları": "Polipropilen üretimi, Propilen oksit üretimi, Yakıt katkısı, Sentetik fiber üretimi.",
+            "Kimyasal Reaksiyonlar": "Hidrojenasyon (çift bağın indirgenmesi)---Halojenleme:Hidrohalojenleme---Polimerleşme: en önemli endüstriyel reaksiyon)---Oksidasyon Tepkimeleri:Yanma Tepkimesi:"
+        
         },
         "C2H4": {
             "Yapı": "İki karbon atomu arasında bir çift bağ (C=C) bulunur. Her karbon atomu ayrıca iki hidrojen atomuna bağlanır. Düzlemsel geometriye sahiptir.",
@@ -313,7 +323,6 @@ with app.app_context():
         )
         db.session.add(yapisal_gorunum)
 
-        # Add properties directly from molecule data
         for baslik, deger in molekul_data.get("ozellikler", {}).items():
             ozellik = Ozellik(
                 tanim=f"{baslik}: {deger}",
