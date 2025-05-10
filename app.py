@@ -106,33 +106,6 @@ def api_molekuller():
         })
     return jsonify(molekul_listesi)
 
-# Molekül Karşılaştırma Sayfası
-@app.route('/karsilastir')
-def karsilastir():
-    molekuller = Molekul.query.all()
-    return render_template('karsilastir.html', molekuller=molekuller)
-
-# Molekül Karşılaştırma API
-@app.route('/api/karsilastir', methods=['POST'])
-def api_karsilastir():
-    data = request.json
-    molekul1 = Molekul.query.filter_by(id=data.get('molekul1_id')).first()
-    molekul2 = Molekul.query.filter_by(id=data.get('molekul2_id')).first()
-    if molekul1 and molekul2:
-        return jsonify({
-            'molekul1': {
-                'ad': molekul1.ad,
-                'kimyasal_formul': molekul1.kimyasal_formul,
-                'ozellikler': [oz.tanim for oz in molekul1.ozellikler]
-            },
-            'molekul2': {
-                'ad': molekul2.ad,
-                'kimyasal_formul': molekul2.kimyasal_formul,
-                'ozellikler': [oz.tanim for oz in molekul2.ozellikler]
-            }
-        })
-    return jsonify({'error': 'Molekül bulunamadı!'}), 404
-
 # Molekül 3D Görselleştirme Sayfası
 @app.route('/3d/<kimyasal_formul>')
 def goruntule_3d(kimyasal_formul):
@@ -156,54 +129,55 @@ def ozellik_ekle():
     data = request.json
     molekul_id = data.get('molekul_id')
     tanim = data.get('tanim')
-    
     if not all([molekul_id, tanim]):
         return jsonify({'error': 'Eksik bilgi'}), 400
-        
     yeni_ozellik = Ozellik(
-        tanim=tanim,
+        tanim=f"{tanim}",
         molekul_id=molekul_id,
         aktif=True,
         silinebilir=True
     )
     db.session.add(yeni_ozellik)
     db.session.commit()
-    
     return jsonify({
         'id': yeni_ozellik.id,
-        'tanim': yeni_ozellik.tanim,
-        'silinebilir': yeni_ozellik.silinebilir
+        'tanim': yeni_ozellik.tanim
     })
+
+# Özellik Silme API (aktifliğini kapat, silme)
+@app.route('/api/ozellik/sil/<int:ozellik_id>', methods=['POST'])
+def ozellik_sil(ozellik_id):
+    ozellik = Ozellik.query.get_or_404(ozellik_id)
+    if not ozellik.silinebilir:
+        return jsonify({'error': 'Bu özellik silinemez'}), 403
+    ozellik.aktif = False
+    db.session.commit()
+    return jsonify({'success': True})
 
 # Özellik Gizleme API
 @app.route('/api/ozellik/gizle/<int:ozellik_id>', methods=['POST'])
 def ozellik_gizle(ozellik_id):
     ozellik = Ozellik.query.get_or_404(ozellik_id)
-    
     if not ozellik.silinebilir:
         return jsonify({'error': 'Bu özellik silinemez'}), 403
-        
     ozellik.aktif = False
     db.session.commit()
-    
     return jsonify({'success': True})
 
 # Özellikleri Sıfırlama API
 @app.route('/api/ozellik/sifirla/<int:molekul_id>', methods=['POST'])
 def ozellik_sifirla(molekul_id):
     molekul = Molekul.query.get_or_404(molekul_id)
-    
-    # Tüm özellikleri getir
-    ozellikler = Ozellik.query.filter_by(molekul_id=molekul_id).all()
-    
-    for ozellik in ozellikler:
+    # Silinebilir olan tüm ek özellikleri önce gizle (aktif=False)
+    for ozellik in molekul.ozellikler:
         if ozellik.silinebilir:
-            # Silinebilir özellikleri sil
-            db.session.delete(ozellik)
+            ozellik.aktif = False
         else:
-            # Varsayılan özellikleri aktifleştir
             ozellik.aktif = True
-    
+    # Sonra, silinebilir ve aktif olmayan (yani gizli) ek özellikleri tekrar görünür yap (aktif=True)
+    for ozellik in molekul.ozellikler:
+        if ozellik.silinebilir and not ozellik.aktif:
+            ozellik.aktif = True
     db.session.commit()
     return jsonify({'success': True})
 

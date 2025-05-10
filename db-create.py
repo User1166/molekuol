@@ -323,12 +323,107 @@ with app.app_context():
         )
         db.session.add(yapisal_gorunum)
 
+        # Varsayılan özellikleri ekle
         for baslik, deger in molekul_data.get("ozellikler", {}).items():
             ozellik = Ozellik(
                 tanim=f"{baslik}: {deger}",
                 molekul_id=molekul.id,
                 aktif=True,
                 silinebilir=False
+            )
+            db.session.add(ozellik)
+
+        # Her molekül için 3 yeni silinebilir özellik ekle
+        ek_ozellikler = {
+            "NH3": [
+                "Endüstriyel Üretim: Haber-Bosch prosesi ile yüksek basınç ve sıcaklıkta azot ve hidrojenden üretilir.",
+                "Depolama: Sıvılaştırılmış formda basınçlı tanklarda saklanır.",
+                "Çevresel Etki: Atmosfere salındığında asit yağmurlarına katkıda bulunabilir."
+            ],
+            "H2": [
+                "Depolama Yöntemleri: Sıvı hidrojen, metal hidritler veya basınçlı tanklarda depolanır.",
+                "İzotoplar: Döteryum (D₂) ve Trityum (T₂) gibi izotopları nükleer uygulamalarda kullanılır.",
+                "Enerji Yoğunluğu: Birim kütle başına en yüksek enerji içeriğine sahip yakıttır."
+            ],
+            "O2": [
+                "Sıvı Oksijen: Roket yakıtı olarak kullanılır ve kriojenik uygulamalarda önemlidir.",
+                "Atmosferik Önemi: Ozon tabakasının oluşumunda ve stratosferik kimyada rol oynar.",
+                "Biyolojik Rol: ATP üretiminde elektron alıcı olarak görev yapar."
+            ],
+            "C2H2": [
+                "Endüstriyel Üretim: Kalsiyum karbürün su ile reaksiyonundan elde edilir.",
+                "Güvenlik: Patlamaya karşı özel güvenlik önlemleri gerektirir.",
+                "Alternatif İsimler: Etin olarak da bilinir ve alkin serisinin ilk üyesidir."
+            ],
+            "CO2": [
+                "Süperkritik Özellikler: 31°C üzerinde süperkritik akışkan olarak davranır.",
+                "Jeolojik Depolama: Yeraltı formasyonlarında karbon yakalama ve depolama için kullanılır.",
+                "pH Etkisi: Suda çözündüğünde pH'ı düşürür ve asidik özellik gösterir."
+            ],
+            "N2": [
+                "Kriyojenik Uygulamalar: Sıvı azot -196°C'de soğutucu olarak kullanılır.",
+                "Biyolojik Döngü: Azot döngüsünün temel bileşenidir.",
+                "Endüstriyel Saflaştırma: Hava ayırma ünitelerinde üretilir."
+            ],
+            "CO": [
+                "Sensör Teknolojisi: CO dedektörleri güvenlik sistemlerinde yaygın kullanılır.",
+                "Endüstriyel Sentez: Metanol ve asetik asit üretiminde temel hammaddedir.",
+                "Uzay Kimyası: Yıldızlararası ortamda yaygın bulunur."
+            ],
+            "CH2O": [
+                "Sterilizasyon: Tıbbi aletlerin sterilizasyonunda kullanılır.",
+                "Doğal Oluşum: Volkanik gazlarda ve orman yangınlarında oluşur.",
+                "Metabolizma: Vücutta bir karbon kaynağı olarak metabolize edilir."
+            ],
+            "CS2": [
+                "Ekstraksiyon: Yağ ekstraksiyonunda çözücü olarak kullanılır.",
+                "Optik Özellikler: Yüksek kırılma indisine sahiptir.",
+                "Endüstriyel Kullanım: Selüloz üretiminde önemli rol oynar."
+            ],
+            "CH3OH": [
+                "Biyoyakıt: Yenilenebilir enerji kaynağı olarak kullanılır.",
+                "Antifriz Özelliği: Düşük donma noktası nedeniyle soğutucu sistemlerde kullanılır.",
+                "Alternatif Yakıt: Direkt metanol yakıt hücrelerinde kullanılır."
+            ],
+            "C3H6": [
+                "Kopolimer Üretimi: Etilen ile kopolimer oluşturabilir.",
+                "Ekonomik Değer: Petrokimya endüstrisinin önemli ara ürünüdür.",
+                "İzomerizasyon: Siklopropan ile izomerdir."
+            ],
+            "C2H4": [
+                "Meyve Olgunlaşması: Doğal bitki hormonu olarak işlev görür.",
+                "Polimerizasyon Kinetiği: Ziegler-Natta katalizörleri ile polimerleşir.",
+                "Endüstriyel Üretim: Steam cracking ile üretilir."
+            ],
+            "H2O": [
+                "Anomali: 4°C'de maksimum yoğunluğa ulaşır.",
+                "İzotop Kompozisyonu: D₂O (ağır su) nükleer reaktörlerde kullanılır.",
+                "Süperkritik Su: 374°C ve 218 atm üzerinde süperkritik akışkan olur."
+            ],
+            "PH3": [
+                "Yarı İletken Üretimi: Elektronik endüstrisinde katkılama maddesi olarak kullanılır.",
+                "Biyolojik Oluşum: Anaerobik bakteriler tarafından üretilebilir.",
+                "Uzay Kimyası: Venüs atmosferinde tespit edilmiştir."
+            ],
+            "CH4": [
+                "Hidrat Oluşumu: Doğal gaz hidratları deniz tabanında bulunur.",
+                "Atmosferik Kimya: Hidroksil radikalleri ile reaksiyona girer.",
+                "Biyogaz Üretimi: Anaerobik fermantasyon ile üretilir."
+            ],
+            "C6H6": [
+                "Moleküler Orbital: Hückel kuralına uyar ve 6 π elektronu içerir.",
+                "Tarihsel Önemi: Kekulé'nin rüyasında yapısını keşfettiği rivayet edilir.",
+                "Endüstriyel Dönüşüm: Alkilbenzen üretiminde temel hammaddedir."
+            ]
+        }
+
+        # Yeni özellikleri ekle
+        for yeni_ozellik in ek_ozellikler.get(molekul_data["kimyasal_formul"], []):
+            ozellik = Ozellik(
+                tanim=f"{yeni_ozellik}",
+                molekul_id=molekul.id,
+                aktif=True,
+                silinebilir=True  # Bu özellikler silinebilir
             )
             db.session.add(ozellik)
 

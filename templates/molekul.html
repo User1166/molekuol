@@ -220,10 +220,148 @@
             camera.aspect = viewer3D.clientWidth / viewer3D.clientHeight;
             camera.updateProjectionMatrix();
         });
+
+        function bildirimGoster(mesaj, tur) {
+            const bildirim = document.getElementById('bildirim');
+            bildirim.textContent = mesaj;
+            bildirim.className = `bildirim ${tur}`;
+            setTimeout(() => {
+                bildirim.className = 'bildirim gizli';
+            }, 3000);
+        }
+
+        function ozellikEkle() {
+            const input = document.getElementById('yeni-ozellik');
+            const yeniOzellik = input.value.trim();
+            
+            if (!yeniOzellik) {
+                bildirimGoster('Lütfen bir özellik yazın!', 'hata');
+                return;
+            }
+
+            fetch('/api/ozellik/ekle', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    molekul_id: {{ molekul.id }},
+                    tanim: yeniOzellik
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.id) {
+                    bildirimGoster('Yeni özellik eklendi.', 'basarili');
+                    setTimeout(() => location.reload(), 1000);
+                } else {
+                    bildirimGoster(data.error || 'Bir hata oluştu.', 'hata');
+                }
+            });
+        }
+
+        function ozellikleriSifirla() {
+            if (!confirm('Tüm özellikler varsayılan haline getirilecek. Onaylıyor musunuz?')) return;
+
+            fetch(`/api/ozellik/sifirla/{{ molekul.id }}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    bildirimGoster('Özellikler başarıyla sıfırlandı.', 'basarili');
+                    setTimeout(() => location.reload(), 1000);
+                } else {
+                    bildirimGoster(data.error || 'Bir hata oluştu.', 'hata');
+                }
+            });
+        }
+
+        function ekOzellikSil(ozellikId) {
+            if (!confirm('Bu ek özelliği silmek istediğinize emin misiniz?')) return;
+            fetch('/api/ozellik/sil/' + ozellikId, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    bildirimGoster('Ek özellik silindi.', 'basarili');
+                    setTimeout(() => location.reload(), 1000);
+                } else {
+                    bildirimGoster(data.error || 'Bir hata oluştu.', 'hata');
+                }
+            });
+        }
     </script>
     {% else %}
     <p>Bu molekül için 3D dosyası bulunmamaktadır.</p>
     {% endif %}
+
+    <!-- Yeni Özellik Ekleme Formu -->
+    <div class="yeni-ozellik-form">
+        <div class="ozellik-card">
+            <div class="ozellik-header">
+                <h5 class="ozellik-title">
+                    <i class="fas fa-plus-circle"></i> 
+                    Yeni Özellik Ekle
+                </h5>
+                <button onclick="ozellikleriSifirla()" class="sifirla-btn">
+                    <i class="fas fa-undo"></i> Özellikleri Sıfırla
+                </button>
+            </div>
+            <div class="ozellik-input-group">
+                <input type="text" 
+                       id="yeni-ozellik" 
+                       placeholder="Yeni özelliği buraya yazın..."
+                       maxlength="100"
+                       onkeydown="if(event.key==='Enter'){event.preventDefault();ozellikEkle();}">
+                <button onclick="ozellikEkle()" class="ekle-btn">
+                    <i class="fas fa-plus"></i> Ekle
+                </button>
+            </div>
+            <div class="info-text">
+                <i class="fas fa-info-circle"></i>
+                Eklediğiniz özellikler daha sonra silinebilir.
+            </div>
+            <div id="bildirim" class="bildirim gizli"></div>
+        </div>
+        <!-- Ek Özellikler Tablosu -->
+        <div class="ozellik-card" style="margin-top:1rem;">
+            <h5 class="ozellik-title">
+                <i class="fas fa-list"></i> Ek Özellikler
+            </h5>
+            <table class="table table-bordered ek-ozellikler-table" style="width:100%;margin-top:1rem;">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ek Özellik</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set ek_ozellikler = ozellikler | selectattr('silinebilir') | selectattr('aktif') | list %}
+                    {% if ek_ozellikler %}
+                        {% for ozellik in ek_ozellikler %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ ozellik.tanim }}</td>
+                            <td>
+                                <button class="ek-ozellik-sil-btn" onclick="ekOzellikSil({{ ozellik.id }})" title="Sil">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="3" style="text-align:center;">Ek özellik bulunamadı.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <h2>Özellikler</h2>
     <div class="molekul-ozellikler-container">
         <div class="ozellikler-accordion">
@@ -339,6 +477,141 @@
     .dark-theme .accordion-content {
         background: #2d2d2d;
         color: #ddd;
+    }
+
+    .yeni-ozellik-form {
+        margin: 2rem auto;
+        max-width: 800px;
+        padding: 0 1rem;
+    }
+
+    .ozellik-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .ozellik-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .ozellik-title {
+        margin: 0;
+        color: #333;
+        font-size: 1.2rem;
+    }
+
+    .ozellik-input-group {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .ozellik-input-group input {
+        flex: 1;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    .ekle-btn, .sifirla-btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .ekle-btn {
+        background: #007bff;
+        color: white;
+    }
+
+    .sifirla-btn {
+        background: #6c757d;
+        color: white;
+    }
+
+    .ekle-btn:hover { background: #0056b3; }
+    .sifirla-btn:hover { background: #5a6268; }
+
+    .info-text {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    .bildirim {
+        padding: 1rem;
+        border-radius: 4px;
+        margin-top: 1rem;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .bildirim.basarili {
+        background: #d4edda;
+        color: #155724;
+        opacity: 1;
+    }
+
+    .bildirim.hata {
+        background: #f8d7da;
+        color: #721c24;
+        opacity: 1;
+    }
+
+    .bildirim.gizli { display: none; }
+
+    .dark-theme .ozellik-card {
+        background: #2d2d2d;
+        color: #fff;
+    }
+
+    .dark-theme .ozellik-input-group input {
+        background: #333;
+        border-color: #444;
+        color: #fff;
+    }
+
+    .dark-theme .info-text { color: #aaa; }
+
+    .ek-ozellikler-table {
+        background: #fff;
+        border-radius: 6px;
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+    .ek-ozellikler-table th, .ek-ozellikler-table td {
+        padding: 0.6rem 0.8rem;
+        border: 1px solid #ddd;
+        vertical-align: middle;
+    }
+    .dark-theme .ek-ozellikler-table {
+        background: #2d2d2d;
+        color: #fff;
+    }
+    .dark-theme .ek-ozellikler-table th, .dark-theme .ek-ozellikler-table td {
+        border-color: #444;
+    }
+    .ek-ozellik-sil-btn {
+        background: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .ek-ozellik-sil-btn:hover {
+        background: #a71d2a;
     }
     </style>
 
