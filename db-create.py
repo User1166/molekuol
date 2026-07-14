@@ -228,7 +228,7 @@ with app.app_context():
             "kimyasal_formul": "CS2",
             "aciklama": "Karbon disülfür, karbon ve kükürt atomları arasında çift bağ içeren doğrusal bir moleküldür.",
             "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Karbon Disülfür.jpeg",
+            "yapisal_resim_url": "/static/2d/karbon disülfür.jpeg",
             "dosya_3d": "karbon disülfür.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CS2", {})

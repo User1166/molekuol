@@ -1,10 +1,14 @@
+from pathlib import Path
+
 from flask import Flask, render_template, url_for, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///molekul.db'
+db_path = Path(app.instance_path) / 'molekul.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path.as_posix()}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
 
 # Molekül Modeli
 class Molekul(db.Model):
@@ -203,4 +207,4 @@ def inject_nav_links():
     return dict(nav_links=nav_links)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5010)
