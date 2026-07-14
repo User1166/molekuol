@@ -188,7 +188,7 @@ with app.app_context():
             "kimyasal_formul": "CO2",
             "aciklama": "Karbon dioksit, atmosferde bulunan ve fotosentezde kullanılan önemli bir gazdır.",
             "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/Karbon dioksit.jpeg",
+            "yapisal_resim_url": "/static/2d/Karbondioksit.jpeg",
             "dosya_3d": "CO2.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CO2", {})
@@ -208,7 +208,7 @@ with app.app_context():
             "kimyasal_formul": "CO",
             "aciklama": "Karbon monoksit, karbon ve oksijen atomları arasında üçlü bağ içeren doğrusal bir moleküldür.",
             "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/karbon monoksit.jpeg",
+            "yapisal_resim_url": "/static/2d/karbonmonoksit.jpeg",
             "dosya_3d": "karbon monoksit.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CO", {})
@@ -228,7 +228,7 @@ with app.app_context():
             "kimyasal_formul": "CS2",
             "aciklama": "Karbon disülfür, karbon ve kükürt atomları arasında çift bağ içeren doğrusal bir moleküldür.",
             "tur": "kovalent",
-            "yapisal_resim_url": "/static/2d/karbon disülfür.jpeg",
+            "yapisal_resim_url": "/static/2d/karbondisülfür.jpeg",
             "dosya_3d": "karbon disülfür.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CS2", {})
