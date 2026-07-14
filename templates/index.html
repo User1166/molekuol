@@ -16,7 +16,7 @@
             {% for element in tum_molekuller %}
                 {% if element.ad in ["Su", "Karbondioksit", "Hidrojen"] %}
                 <div class="highlight-card">
-                    <img src="{{ element.yapisal_gorunum[0].resim_url }}" alt="{{ element.ad }}" class="small-image">
+                    <img src="{{ static_asset_url(element.yapisal_gorunum[0].resim_url) }}" alt="{{ element.ad }}" class="small-image">
                     <h3>{{ element.ad }}</h3>
                     <p>{{ element.aciklama[:100] }}...</p>
                     <a href="{{ url_for('molekul_detay', kimyasal_formul=element.kimyasal_formul) }}" class="btn btn-primary">Detaylar</a>

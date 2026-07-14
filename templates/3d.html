@@ -19,7 +19,7 @@
             return;
         }
         const viewer = $3Dmol.createViewer(viewerElement, { backgroundColor: "white" });
-        fetch(`/static/3d/{{ molekul.dosya_3d }}`)
+        fetch("{{ static_asset_url(molekul.dosya_3d, '3d') }}")
             .then(response => response.text())
             .then(modelData => {
                 viewer.addModel(modelData, "obj"); // .obj dosyasını yüklemek için "obj" formatı kullanılıyor

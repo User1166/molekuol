@@ -159,7 +159,7 @@ with app.app_context():
             "aciklama": "Hidrojen, evrendeki en hafif ve en bol bulunan elementtir. Enerji üretiminde ve kimyasal reaksiyonlarda kullanılır.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Hidrojen.jpeg",
-            "dosya_3d": "H2.obj",
+            "dosya_3d": "h2.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("H2", {})
         },
@@ -189,7 +189,7 @@ with app.app_context():
             "aciklama": "Karbon dioksit, atmosferde bulunan ve fotosentezde kullanılan önemli bir gazdır.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Karbondioksit.jpeg",
-            "dosya_3d": "CO2.obj",
+            "dosya_3d": "co2.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CO2", {})
         },
@@ -269,7 +269,7 @@ with app.app_context():
             "aciklama": "Su, bir oksijen ve iki hidrojen atomundan oluşan yaşam için temel bir moleküldür.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/Su.jpeg",
-            "dosya_3d": "H2O.obj",
+            "dosya_3d": "h2o.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("H2O", {})
         },
@@ -289,7 +289,7 @@ with app.app_context():
             "aciklama": "Metan, bir karbon ve dört hidrojen atomundan oluşan en basit alkan bileşiğidir. Doğal gazın ana bileşenidir.",
             "tur": "kovalent",
             "yapisal_resim_url": "/static/2d/CH4.jpeg.jpg",
-            "dosya_3d": "CH4.obj",
+            "dosya_3d": "ch4.obj",
             "silinebilir": False,
             "ozellikler": ozellikler_txt.get("CH4", {})
         },

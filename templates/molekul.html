@@ -9,7 +9,7 @@
         <p class="molekul-description">{{ molekul.aciklama }}</p>
     </div>
     <div class="molekul-images">
-        <img src="{{ molekul.yapisal_gorunum[0].resim_url }}" alt="{{ molekul.ad }} Yapısal Görünüm" class="large-image">
+        <img src="{{ static_asset_url(molekul.yapisal_gorunum[0].resim_url) }}" alt="{{ molekul.ad }} Yapısal Görünüm" class="large-image">
     </div>
     <h2>3D Görünüm</h2>
     {% if molekul.dosya_3d %}
@@ -93,7 +93,7 @@
         let model;
         const loader = new THREE.OBJLoader();
         loader.load(
-            "{{ url_for('static', filename='3d/' ~ molekul.dosya_3d) }}",
+            "{{ static_asset_url(molekul.dosya_3d, '3d') }}",
             function (object) {
                 model = object;
                 scene.add(model);
@@ -136,8 +136,8 @@
         // Molekülü İndir
         downloadModelButton.addEventListener('click', () => {
             const link = document.createElement('a');
-            link.href = "{{ url_for('static', filename='3d/' ~ molekul.dosya_3d) }}";
-            link.download = "{{ molekul.dosya_3d }}";
+            link.href = "{{ static_asset_url(molekul.dosya_3d, '3d') }}";
+            link.download = "{{ static_asset_name(molekul.dosya_3d, '3d') }}";
             link.click();
         });
 

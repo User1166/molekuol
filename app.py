@@ -10,6 +10,51 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
+def _resolve_static_filename(filename, subdir=None):
+    if not filename:
+        return filename
+
+    normalized = str(filename).replace('\\', '/')
+    if normalized.startswith('/static/'):
+        normalized = normalized[len('/static/'):]
+    elif normalized.startswith('static/'):
+        normalized = normalized[len('static/'):]
+    elif subdir and '/' not in normalized:
+        normalized = f'{subdir}/{normalized}'
+
+    parts = [part for part in normalized.split('/') if part]
+    current_path = Path(app.static_folder)
+    resolved_parts = []
+
+    for part in parts:
+        if not current_path.exists() or not current_path.is_dir():
+            resolved_parts.append(part)
+            current_path = current_path / part
+            continue
+
+        match = next(
+            (item.name for item in current_path.iterdir() if item.name.casefold() == part.casefold()),
+            part
+        )
+        resolved_parts.append(match)
+        current_path = current_path / match
+
+    return '/'.join(resolved_parts)
+
+
+def static_asset_url(filename, subdir=None, external=False):
+    return url_for(
+        'static',
+        filename=_resolve_static_filename(filename, subdir),
+        _external=external
+    )
+
+
+def static_asset_name(filename, subdir=None):
+    resolved = _resolve_static_filename(filename, subdir)
+    return Path(resolved).name if resolved else ''
+
+
 # Molekül Modeli
 class Molekul(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -93,7 +138,7 @@ def molekul_detay(kimyasal_formul):
 def api_3d_molekul(kimyasal_formul):
     molekul = Molekul.query.filter_by(kimyasal_formul=kimyasal_formul).first()
     if molekul and molekul.dosya_3d:
-        return jsonify({'dosya_3d': url_for('static', filename=f'3d/{molekul.dosya_3d}', _external=True)})
+        return jsonify({'dosya_3d': static_asset_url(molekul.dosya_3d, '3d', external=True)})
     return jsonify({'error': '3D dosyası bulunamadı!'}), 404
 
 # Tüm Moleküller API
@@ -204,7 +249,11 @@ nav_links = [
 # Template context processor
 @app.context_processor
 def inject_nav_links():
-    return dict(nav_links=nav_links)
+    return dict(
+        nav_links=nav_links,
+        static_asset_url=static_asset_url,
+        static_asset_name=static_asset_name
+    )
 
 if __name__ == '__main__':
     app.run(debug=True,port=5010)
