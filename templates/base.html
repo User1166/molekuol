@@ -10,35 +10,40 @@
 <body>
     <div class="sidebar">
         <div class="sidebar-content">
-            <!-- Ana Sayfa -->
-            <div class="sidebar-links">
-                <a href="{{ url_for('index') }}"><i class="fas fa-home"></i> Ana Sayfa</a>
+            <a class="sidebar-brand" href="{{ url_for('index') }}">
+                <span class="brand-mark" aria-hidden="true"><i class="fas fa-atom"></i></span>
+                <span><strong>Molekül</strong><small>3D Sözlük</small></span>
+            </a>
+
+            <div class="sidebar-section">
+                <p class="sidebar-label">KEŞFET</p>
+                <nav class="sidebar-links" aria-label="Ana menü">
+                    <a href="{{ url_for('index') }}" {% if request.endpoint == 'index' %}aria-current="page"{% endif %}><i class="fas fa-home" aria-hidden="true"></i><span>Ana Sayfa</span></a>
+                    <a href="{{ url_for('tum_molekuller') }}" {% if request.endpoint == 'tum_molekuller' %}aria-current="page"{% endif %}><i class="fas fa-th" aria-hidden="true"></i><span>Tüm Moleküller</span></a>
+                </nav>
             </div>
 
-            <!-- Tüm Moleküller -->
-            <div class="sidebar-links">
-                <a href="{{ url_for('tum_molekuller') }}"><i class="fas fa-th"></i> Tüm Moleküller</a>
+            <div class="sidebar-search-area">
+                <p class="sidebar-label">HIZLI ARAMA</p>
+                <form class="search-box" action="{{ url_for('tum_molekuller') }}" method="get" role="search">
+                    <label class="visually-hidden" for="search-input">Molekül ara</label>
+                    <input type="search" id="search-input" name="search" placeholder="Molekül ara..." autocomplete="off">
+                    <button type="submit" aria-label="Ara"><i class="fas fa-search" aria-hidden="true"></i></button>
+                </form>
+                <div id="search-suggestions" class="search-suggestions" role="status"></div>
             </div>
 
-            <!-- Arama Kutusu -->
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Molekül Ara...">
-                <button onclick="searchMolecule()"><i class="fas fa-search"></i></button>
+            <div class="sidebar-section sidebar-secondary">
+                <p class="sidebar-label">PROJE</p>
+                <nav class="sidebar-links" aria-label="Proje bilgileri">
+                    <a href="{{ url_for('hakkinda') }}" {% if request.endpoint == 'hakkinda' %}aria-current="page"{% endif %}><i class="fas fa-info-circle" aria-hidden="true"></i><span>Hakkında</span></a>
+                    <a href="{{ url_for('iletisim') }}" {% if request.endpoint == 'iletisim' %}aria-current="page"{% endif %}><i class="fas fa-envelope" aria-hidden="true"></i><span>İletişim</span></a>
+                </nav>
             </div>
 
-            <!-- Hakkında ve İletişim -->
-            <div class="sidebar-links">
-                <a href="{{ url_for('hakkinda') }}"><i class="fas fa-info-circle"></i> Hakkında</a>
-                <a href="{{ url_for('iletisim') }}"><i class="fas fa-envelope"></i> İletişim</a>
-            </div>
-
-            <!-- Tema Değiştirici -->
-            <div class="sidebar-links">
-                <button onclick="toggleTheme()" class="theme-switcher-btn"><i class="fas fa-adjust"></i> Tema Değiştir</button>
-            </div>
-
-            <div class="sidebar-footer">
-                <p>&copy; 2025 Ankara Atatürk Anadolu Lisesi</p>
+            <div class="sidebar-bottom">
+                <button type="button" onclick="toggleTheme()" class="theme-switcher-btn"><i class="fas fa-adjust" aria-hidden="true"></i><span>Tema değiştir</span></button>
+                <div class="sidebar-footer"><p>&copy; 2025 Ankara Atatürk Anadolu Lisesi</p></div>
             </div>
         </div>
     </div>
@@ -48,18 +53,5 @@
     </div>
 
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-        }
-
-        // Sayfa yüklendiğinde tema durumunu kontrol et
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-theme');
-            }
-        });
-    </script>
 </body>
 </html>

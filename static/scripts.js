@@ -4,6 +4,9 @@
         const theme = localStorage.getItem('theme');
         if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark-theme');
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.add('dark-theme');
+            });
         }
         document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.classList.add('ready');
@@ -36,12 +39,20 @@ if (searchInput) {
             fetch(`/api/arama_onerileri?q=${encodeURIComponent(query)}`)
                 .then(r => r.json())
                 .then(data => {
-                    suggestionsBox.innerHTML = data.length
-                        ? `<ul>${data.map(item => `<li>${item}</li>`).join('')}</ul>`
-                        : '';
-                });
+                    suggestionsBox.replaceChildren();
+                    if (!Array.isArray(data) || !data.length) return;
+
+                    const list = document.createElement('ul');
+                    data.forEach(item => {
+                        const entry = document.createElement('li');
+                        entry.textContent = String(item);
+                        list.appendChild(entry);
+                    });
+                    suggestionsBox.appendChild(list);
+                })
+                .catch(() => suggestionsBox.replaceChildren());
         } else {
-            suggestionsBox.innerHTML = '';
+            suggestionsBox.replaceChildren();
         }
     });
 }
